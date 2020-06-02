@@ -14,7 +14,9 @@
   background-color:#FDF8EE ;
   width: 300px;
   border-radius: 3px;
-  box-shadow: 0 0 5px rgb(230,230,230);
+  -webkit-box-shadow: 9px 9px 7px 0px rgba(41,41,41,0.39);
+  -moz-box-shadow: 9px 9px 7px 0px rgba(41,41,41,0.39);
+  box-shadow: 9px 9px 7px 0px rgba(41,41,41,0.39);
   text-align: center;
   padding: 20px;
   border: 1px solid rgb(230,230,230);
