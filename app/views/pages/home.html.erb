@@ -6,7 +6,7 @@
     <!-- SEARCH BAR --->
     <div id="content">
       <h1 class="text-left">Local marketplace for plants</h1>
-      
+
       <!-- ORIGINAL SEARCH BUTTON, TODO: REMOVE IF WE DONT NEED IT ANYMORE>
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group input-group">
@@ -18,7 +18,7 @@
       <% end %>
       -->
       <%= form_tag listings_path, method: :get do %>
-      
+
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
@@ -41,7 +41,7 @@
   <h3 class="text-center" style="margin-bottom: 30px;">
   Become a greenswap member</h3>
 
-      <div class="cards" id="home-page-cards">
+      <div class="cards" id="card-homepage">
         <div class="card">
         <%= image_tag ("picture-card-home.gif") %>
         <h4>Browse all plants</h4>
@@ -49,14 +49,14 @@
         <%= link_to "Browse all plants", listings_path,class: "btn-orange-card"%>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-homepage">
         <%= image_tag ("picture-card-home.gif") %>
         <h4>Swap & Review</h4>
         <p>Swap your plants with other plants lover</p>
         <%= link_to "Start Swapping", listings_path, class: "btn-orange-card"%>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-homepage">
         <%= image_tag ("picture-card-home.gif") %>
         <h4>Join the community</h4>
         <p>Become a plant master with the knowledge of our community</p>
