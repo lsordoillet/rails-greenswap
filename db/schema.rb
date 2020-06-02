@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_102127) do
+ActiveRecord::Schema.define(version: 2020_06_02_140020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_102127) do
     t.string "care_level_category"
     t.string "listing_type"
     t.text "description"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.integer "quantity", default: 1
     t.string "postcode"
     t.string "city"
