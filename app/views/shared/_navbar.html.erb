@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
          <li class="btn-orange">
-        <%= link_to "+ Post Listing", class: "btn-orange"%>
+        <%= link_to "+ Post Listing", new_listing_path, class: "btn-orange"%>
       </li>
       <% if user_signed_in? %>
       <li class="nav-item">
