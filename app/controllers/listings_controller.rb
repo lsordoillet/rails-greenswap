@@ -33,23 +33,3 @@ class ListingsController < ApplicationController
     authorize @listing
   end
 end
-
-
-<%= simple_form_for(@listing) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :postcode %>
-    <%= f.input :city %>
-    <%= f.input :description %>
-    <%= f.input :active %>
-    <%= f.input :quantity %>
-    <%= f.input :price %>
-    <%= f.select :plant_category, collection: Listing::PLANT_CATEGORY %>
-    <%= f.select :listing_type, collection: Listing::LISTING_TYPE %>
-    <%= f.select :care_level_category, collection: Listing::CARE_LEVEL_CATEGORY %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Add listing", class: "btn-blue" %>
-  <% end %>
-  
-  </div>
-  
-  
