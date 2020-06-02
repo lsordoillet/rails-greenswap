@@ -1,6 +1,12 @@
-<h1>The carousel to be displayed... </h1>
+<%= link_to 'Back', listings_path %>
 
-
+<div class="container">
+      <% @listing.photos.each do |photo| %>
+  <div class="row justify-content-center">
+      <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
+  <% end %>
+  </div>
+</div>
 
       <div class="cards" id="home-page-cards">
         <div class="card w-75" id="show-card" style="margin-right: 50px; background-color: white;">
@@ -28,4 +34,3 @@
 
 <h1>Map</h1>
 
-<%= link_to 'Back', listings_path, class: "btn-blue" %>
