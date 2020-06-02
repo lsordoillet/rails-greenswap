@@ -1,22 +1,32 @@
-.btn-blue {
+.btn-orange {
   padding-right: 12px;
   color:#FAFAFA !important;
   padding-left: 12px;
-  background-color:$blue;
+  background-color:$orange;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: bold;
 }
 
-.btn-blue:hover {
-  background-color:$blue;
+.btn-orange:hover {
+  background-color:$orange;
   transition: opacity 0.3s ease;
   text-decoration:none;
 }
 
 
-.btn-blue a {
+.btn-orange a {
   color:#FAFAFA;
   text-decoration:none;
 }
 
+
+.btn {
+  padding-right: 12px;
+  color:#FAFAFA !important;
+  padding-left: 12px;
+  background-color:$orange;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+}
