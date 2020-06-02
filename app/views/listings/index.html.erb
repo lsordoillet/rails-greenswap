@@ -12,4 +12,20 @@
     </div>
    </div>
   </div>
+
+<div class="col-xs-12 col-sm-8">
+ <div id="listings">
+   <% @listings.each do |listing| %>
+     <button class="btn-primary">
+       <%= listing.plant_category_list %>
+     </button>
+     <button class="btn-danger">
+       <%= listing.listing_type_list %>
+     </button>
+     <button class="btn-danger">
+       <%= listing.care_level_category_list %>
+     </button>
+   <% end %>
+ </div>
+</div>
 </div>

@@ -1,4 +1,18 @@
 class Listing < ApplicationRecord
+
+  include PgSearch::Model
+  
+  pg_search_scope :global_search,
+    against: [ :name ],
+    associated_against: {
+      plant_category: [:name],
+      listing_type: [:name],
+      care_level_category: [:name]
+    },
+    using: {
+      tsearch: {any_word: true}
+    }
+
   PLANT_CATEGORY = ["Seeds", "Cuttings", "Plants"]
   LISTING_TYPE = ["Swap", "Giveaway", "Sell"]
   CARE_LEVEL_CATEGORY = ["Easy", "Medium", "Difficult"]
