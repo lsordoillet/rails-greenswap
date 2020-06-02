@@ -1,12 +1,27 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $green;
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  padding: 5px 30px;
+  align-items: center;
 }
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 200px;
+}
+
+.nav-link{
+  color: $greenswap;
+}
+
+.fixed-top{
+position: sticky;
 }
