@@ -3,7 +3,16 @@ class ListingsController < ApplicationController
   before_action :set_plant, only: [:destroy]
   
   def index
-    @listings = policy_scope(Listing)
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query OR postcode ILIKE :query OR city ILIKE :query"
+
+      @listings = policy_scope(Listing).where(sql_query, query: "%#{params[:query]}%")
+
+      # TODO: Searches for title, description, city and postcode. Algolia? Does Algolia mess up with non-address searches?
+
+    else
+      @listings = policy_scope(Listing)
+    end
   end
 
   def new
