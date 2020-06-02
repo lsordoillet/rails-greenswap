@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_plant, only: [:destroy]
-  
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_listing, only: [:destroy, :show]
+
   def index
     @listings = policy_scope(Listing)
   end
@@ -9,6 +9,15 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
     authorize @listing
+  end
+
+  def edit
+    @listing = Listing.find(params[:id])
+    authorize @listing
+  end
+
+  def show
+
   end
 
   def create
