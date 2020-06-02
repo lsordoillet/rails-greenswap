@@ -1,0 +1,31 @@
+<h1>The carousel to be displayed... </h1>
+
+
+
+      <div class="cards" id="home-page-cards">
+        <div class="card w-75" id="show-card" style="margin-right: 50px; background-color: white;">
+          <div class="show-header">
+        <h4><%= @listing.title %></h4>
+        <h5>
+          <% if@listing.listing_type == "Sell" %>
+         <%= @listing.price %>€
+          <% else %>
+          <%= @listing.listing_type %>
+          <% end %>
+         </h5>
+       </div>
+        <p> <%= @listing.description %></p>
+      </div>
+
+      <div class="card">
+        <!-- <%= image_tag ("picture-card-home.gif") %> -->
+        <h4>User Card (profile pic + username)</h4>
+        <p>something about user+average rating</p>
+        <%= link_to "Start a Message", class: "btn-blue"%>
+      </div>
+      </div>
+
+
+<h1>Map</h1>
+
+<%= link_to 'Back', class: "btn-blue" %>
