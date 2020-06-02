@@ -1,10 +1,35 @@
-.btn-orange {
+.btn {
+  padding-right: 12px;
+  color:#FAFAFA !important;
+  padding-left: 12px;
+  background-color:$orange;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.nav-button {
   padding-right: 12px;
   color:#FAFAFA !important;
   padding-left: 12px;
   background-color:$orange;
   padding: 8px 12px;
   border-radius: 50px;
+  font-weight: bold;
+}
+
+.nav-button:hover {
+  background-color:$orange;
+  transition: opacity 0.3s ease;
+  text-decoration:none;
+}
+
+.btn-orange {
+  padding-right: 12px;
+  color:#FAFAFA !important;
+  padding-left: 12px;
+  background-color:$orange;
+  padding: 8px 12px;
   font-weight: bold;
 }
 
@@ -20,13 +45,8 @@
   text-decoration:none;
 }
 
+.btn-orange-card {
 
-.btn {
-  padding-right: 12px;
-  color:#FAFAFA !important;
-  padding-left: 12px;
-  background-color:$orange;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: bold;
 }
+
+
