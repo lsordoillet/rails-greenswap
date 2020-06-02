@@ -1,9 +1,10 @@
 <div class="container">
   <div class="flex-container">
    <% @listings.each do |listing| %>
-   <div class="card card-plant" style="width: 18rem;">
+   <div class="card" style="width: 18rem;">
     <div class="row justify-content-center">
       <% if !listing.photos.first.nil?%>
+      <%= listing.title%>
       <%= cl_image_tag listing.photos.first.key, height: 200, width: 300, crop: :fill %>
       <% else %>
       <%= image_tag "placeholder.png", alt: "placeholder-img", height: 200, width: 300 %>
