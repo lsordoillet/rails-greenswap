@@ -7,12 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-# Robert: Commented the following because it doesnt work without ActiveStorage
-# puts "Destroying listings"
-# Listing.destroy_all if Rails.env.development?
-# puts "Destroying users"
-# User.destroy_all if Rails.env.development?
-# puts "maybe done (check if there are any errors)"
+puts "Destroying listings"
+Listing.destroy_all if Rails.env.development?
+puts "Destroying users"
+User.destroy_all if Rails.env.development?
+puts "maybe done (check if there are any errors)"
 puts "Creating users"
 
 user1 = User.create!(
@@ -38,13 +37,12 @@ listing1 = Listing.new(
   active: true,
   quantity: 4,
   )
-# TODO: Robert: Uncomment after Active Storage/Cloudinary works
-# file1 = URI.open('https://unsplash.com/photos/KuLu5kj2k4o/download?force=true&w=1920')
-# listing1.photos.attach(io: file1, filename: 'Cactus1.jpg', content_type: 'image/jpg')
-# file2 = URI.open('https://unsplash.com/photos/EJWrW-nlyyI/download?force=true&w=1920')
-# listing1.photos.attach(io: file2, filename: 'Cactus2.jpg', content_type: 'image/jpg')
-# file3 = URI.open('https://unsplash.com/photos/fmJx-xuxHtA/download?force=true&w=1920')
-# listing1.photos.attach(io: file3, filename: 'Cactus3.jpg', content_type: 'image/jpg')
+file1 = URI.open('https://unsplash.com/photos/KuLu5kj2k4o/download?force=true&w=1920')
+listing1.photos.attach(io: file1, filename: 'Cactus1.jpg', content_type: 'image/jpg')
+file2 = URI.open('https://unsplash.com/photos/EJWrW-nlyyI/download?force=true&w=1920')
+listing1.photos.attach(io: file2, filename: 'Cactus2.jpg', content_type: 'image/jpg')
+file3 = URI.open('https://unsplash.com/photos/fmJx-xuxHtA/download?force=true&w=1920')
+listing1.photos.attach(io: file3, filename: 'Cactus3.jpg', content_type: 'image/jpg')
 listing1.user = user1
 listing1.save!
 
@@ -59,13 +57,12 @@ listing2 = Listing.new(
   active: true,
   quantity: 2,
   )
-# TODO: Uncomment after Active Storage/Cloudinary works
-# file4 = URI.open('https://unsplash.com/photos/gMB96cODP-U/download?force=true&w=1920')
-# listing2.photos.attach(io: file4, filename: 'Philodendron1.jpg', content_type: 'image/jpg')
-# file5 = URI.open('https://unsplash.com/photos/HtRfBkprwRk/download?force=true&w=1920')
-# listing2.photos.attach(io: file5, filename: 'Philodendron2.jpg', content_type: 'image/jpg')
-# file6 = URI.open('https://unsplash.com/photos/eb3HOB8l-x8/download?force=true&w=1920')
-# listing2.photos.attach(io: file6, filename: 'Philodendron3.jpg', content_type: 'image/jpg')
+file4 = URI.open('https://unsplash.com/photos/gMB96cODP-U/download?force=true&w=1920')
+listing2.photos.attach(io: file4, filename: 'Philodendron1.jpg', content_type: 'image/jpg')
+file5 = URI.open('https://unsplash.com/photos/HtRfBkprwRk/download?force=true&w=1920')
+listing2.photos.attach(io: file5, filename: 'Philodendron2.jpg', content_type: 'image/jpg')
+file6 = URI.open('https://unsplash.com/photos/eb3HOB8l-x8/download?force=true&w=1920')
+listing2.photos.attach(io: file6, filename: 'Philodendron3.jpg', content_type: 'image/jpg')
 listing2.user = user1
 listing2.save!
 
@@ -79,11 +76,10 @@ listing3 = Listing.new(
   listing_type: "Swap",
   active: true,
   )
-# TODO: Uncomment after Active Storage/Cloudinary works
-# ffile1 = URI.open('https://unsplash.com/photos/dIZiA7dkRjc/download?force=true&w=1920')
-# listing3.photos.attach(io: ffile1, filename: 'monstera1.jpg', content_type: 'image/jpg')
-# ffile2 = URI.open('https://unsplash.com/photos/B2JUvo192ys/download?force=true&w=1920')
-# listing3.photos.attach(io: ffile2, filename: 'monstera2.jpg', content_type: 'image/jpg')
+ffile1 = URI.open('https://unsplash.com/photos/dIZiA7dkRjc/download?force=true&w=1920')
+listing3.photos.attach(io: ffile1, filename: 'monstera1.jpg', content_type: 'image/jpg')
+ffile2 = URI.open('https://unsplash.com/photos/B2JUvo192ys/download?force=true&w=1920')
+listing3.photos.attach(io: ffile2, filename: 'monstera2.jpg', content_type: 'image/jpg')
 listing3.user = user2
 listing3.save!
 
@@ -98,16 +94,15 @@ listing4 = Listing.new(
   city: "Berlin",
   price: 10,
   )
-# TODO: Uncomment after Active Storage/Cloudinary works
-# ffile4 = URI.open('https://unsplash.com/photos/8mqOw4DBBSg/download?force=true&w=1920')
-# listing4.photos.attach(io: ffile4, filename: 'happy1.jpg', content_type: 'image/jpg')
-# ffile5 = URI.open('https://unsplash.com/photos/_mgfuATaQnk/download?force=true&w=1920')
-# listing4.photos.attach(io: ffile5, filename: 'happy2.jpg', content_type: 'image/jpg')
-# ffile6 = URI.open('https://unsplash.com/photos/5sF6NrB1MEg/download?force=true&w=1920')
-# listing4.photos.attach(io: ffile6, filename: 'jungle1.jpg', content_type: 'image/jpg')
-# ffile7 = URI.open('https://unsplash.com/photos/OOE4xAnBhKo/download?force=true&w=1920')
-# listing4.photos.attach(io: ffile7, filename: 'jungle2.jpg', content_type: 'image/jpg')
-# ffile8 = URI.open('https://unsplash.com/photos/MvA86_qwpEI/download?force=true&w=1920')
-# listing4.photos.attach(io: ffile8, filename: 'jungle3.jpg', content_type: 'image/jpg')
+ffile4 = URI.open('https://unsplash.com/photos/8mqOw4DBBSg/download?force=true&w=1920')
+listing4.photos.attach(io: ffile4, filename: 'happy1.jpg', content_type: 'image/jpg')
+ffile5 = URI.open('https://unsplash.com/photos/_mgfuATaQnk/download?force=true&w=1920')
+listing4.photos.attach(io: ffile5, filename: 'happy2.jpg', content_type: 'image/jpg')
+ffile6 = URI.open('https://unsplash.com/photos/5sF6NrB1MEg/download?force=true&w=1920')
+listing4.photos.attach(io: ffile6, filename: 'jungle1.jpg', content_type: 'image/jpg')
+ffile7 = URI.open('https://unsplash.com/photos/OOE4xAnBhKo/download?force=true&w=1920')
+listing4.photos.attach(io: ffile7, filename: 'jungle2.jpg', content_type: 'image/jpg')
+ffile8 = URI.open('https://unsplash.com/photos/MvA86_qwpEI/download?force=true&w=1920')
+listing4.photos.attach(io: ffile8, filename: 'jungle3.jpg', content_type: 'image/jpg')
 listing4.user = user2
 listing4.save!
