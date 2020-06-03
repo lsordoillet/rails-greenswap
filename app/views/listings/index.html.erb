@@ -7,8 +7,8 @@
   <div class="category">
    <p id="category-name"> Plant Category </p>
    <div class="advancedsearch">
-    <%= f.collection_check_boxes :plant_category, Listing::PLANT_CATEGORY , :to_s, :to_s %>
-   </div>
+    <%= f.collection_check_boxes :plant_category, Listing::PLANT_CATEGORY , :to_s, :to_s, {},  value: params[:search].present? ? params[:search][:plant_category] : nil %>  
+  </div>
   </div>
   <div class="category">
    <p id="category-name"> Listing Type </p>
