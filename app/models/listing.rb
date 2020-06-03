@@ -15,12 +15,4 @@ class Listing < ApplicationRecord
   validates :care_level_category, presence: true, inclusion: { in: CARE_LEVEL_CATEGORY }
 
   has_many_attached :photos
-
-#include PgSearch::Model
- # pg_search_scope :global_search,
-  #  against: [ :name, :plant_category, :listing_type, :care_level_category ],
-   # using: {
-    #  tsearch: { prefix: true }
-    #}
 end
- 

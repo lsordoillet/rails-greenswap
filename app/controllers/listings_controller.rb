@@ -5,7 +5,6 @@ class ListingsController < ApplicationController
   def index
     @listings = policy_scope(Listing)
     if params["search"].present?
-      #@filter = params["search"]["plant_category"]["listing_type"]["care_level_category"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
       if params["search"]["plant_category"].present? && params["search"]["plant_category"].second.present?
         @listings = @listings.where(plant_category: params["search"]["plant_category"])
       end
