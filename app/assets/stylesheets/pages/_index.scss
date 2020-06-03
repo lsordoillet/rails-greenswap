@@ -5,17 +5,21 @@ p {
    font-weight: 300;
 }
 
+
 .advancedsearch {
     display: grid;
     margin-left: 10px;
 }
 .filter {
     margin: 20px;
-    width: 180px;
+    width: 125px;
+    height: 480px;
+    border-style: inset;
+    border-radius: 5px;
+  
 }
 
 .flex-container {
-    justify-content: space-between;
     display: flex;
 }
 #category-name {
