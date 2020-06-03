@@ -1,15 +1,34 @@
+<!-- <h1><%= content_for(:title, "LOCAL GOODIES") %></h1>
+ -->
+<!------------------ CARDS CONTAINER ------------------->
+
 <div class="container">
-  <div class="flex-container">
+
+
+
+
+  <div class="cards">
    <% @listings.each do |listing| %>
-   <div class="card card-plant" style="width: 18rem;">
-    <div class="row justify-content-center">
+    <div class="card" style="width: 16rem;">
       <% if !listing.photos.first.nil?%>
-      <%= cl_image_tag listing.photos.first.key, height: 200, width: 300, crop: :fill %>
+      <%= cl_image_tag listing.photos.first.key, :width=>250, :height=>250, :gravity=>"faces", :crop=>"fill" %>
       <% else %>
-      <%= image_tag "placeholder.png", alt: "placeholder-img", height: 200, width: 300 %>
+      <%= image_tag "placeholder.png", alt: "placeholder-img", height: 200, width: 400 %>
       <% end %>
+      <div class="card-listing-infos">
+      <h4 class="card-listing-infos"><%= listing.title %></h4>
+    </div>
+    <div>
+      <div class="flex-container-grid">
+        <p><%= listing.plant_category %></p>
+        <p class="card-listing-pricing"><%= listing.listing_type %></p>
+      </div>
+    </div>
+    </div>
+
     <% end %>
     </div>
+<<<<<<< HEAD
    </div>
   </div>
 
@@ -29,3 +48,9 @@
  </div>
 </div>
 </div>
+=======
+</div>
+<!------------------ END OF CARD CONTAINER ------------------->
+
+
+>>>>>>> master
