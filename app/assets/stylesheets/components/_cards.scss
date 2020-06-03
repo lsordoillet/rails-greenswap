@@ -99,3 +99,20 @@
   top: -20px;
   width: 40px;
 }
+
+#index-card {
+  width:310px;
+  height:310px;
+  margin-bottom: 30px;
+
+}
+
+#index-card p {
+ margin-bottom:0;
+ text-align:left;
+ margin-left: 20px;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
+}

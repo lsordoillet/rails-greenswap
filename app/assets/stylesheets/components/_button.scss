@@ -1,28 +1,25 @@
+// BASIC BUTTON STYLE //
 .btn {
-  padding-right: 12px;
   color:#FAFAFA !important;
-  padding-left: 12px;
   background-color:$orange;
   padding: 8px 12px;
-  border-radius: 50px;
-  font-weight: bold;
-}
-
-.nav-button {
-  padding-right: 12px;
-  color:#FAFAFA !important;
-  padding-left: 12px;
-  background-color:$orange;
-  padding: 8px 12px;
-  border-radius: 50px;
   font-weight: medium;
 }
 
-.nav-button:hover {
+// NAVBAR BUTTON WITH BORDER RADIUS //
+.nav-btn {
+  border-radius: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-btn:hover {
   background-color:$orange;
   transition: opacity 0.3s ease;
   text-decoration:none;
 }
+
+// ALL BUTTONS //
 
 .btn-orange {
   padding-right: 12px;
@@ -45,6 +42,7 @@
   text-decoration:none;
 }
 
+// CARD BUTTONS //
 .btn-orange-card {
   padding-right: 12px;
   color:#FAFAFA !important;
@@ -55,5 +53,7 @@
   width: 100%;
   display: block;
 }
+
+
 
 
