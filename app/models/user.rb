@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\z/
+  validates :username, presence: true, length: { maximum: 20 },
+                                    format: { with: VALID_USERNAME_REGEX },
+                                    uniqueness: { case_sensitive: false }
 end
