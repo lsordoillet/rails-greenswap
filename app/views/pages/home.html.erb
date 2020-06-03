@@ -5,29 +5,25 @@
   <div class="container">
     <!-- SEARCH BAR --->
     <div id="content">
-      <h1 class="text-left">Local marketplace for plants</h1>
 
-      <!-- ORIGINAL SEARCH BUTTON, TODO: REMOVE IF WE DONT NEED IT ANYMORE>
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group input-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search for plants around you"/>
-        <button id="search-this"type="button" class="pull-right btn btn-default search-btn">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-      <% end %>
-      -->
+      <h1 class="text-left" style="padding-left:40px; padding-bottom:10px;">Local marketplace for plants</h1>
       <%= form_tag listings_path, method: :get do %>
-
+      <div class="search-form-control form-group input-group">
         <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a plant"
-        %>
-        <%= submit_tag "Search", class: "pull-right btn btn-default search-btn" %>
-      <% end %>
+        params[:query],
+        class: "form-control search-form",
+          placeholder: "Search for plants/cuttings/seeds around you"
+          %>
+          <button id="search-this"type="button" class="pull-right btn btn-default search-btn">
+            <i class="fa fa-search"></i>
+          </button>
+      </div>
+        <% end %>
+
+
     </div>
   </div>
+
 </div>
 
 <!-- END OF THE SEARCH BAR --->
@@ -40,32 +36,29 @@
   How it works</h1>
   <h3 class="text-center" style="margin-bottom: 30px;">
   Become a greenswap member</h3>
-
-      <div class="cards" id="card-homepage">
-        <div class="card">
-        <%= image_tag ("picture-card-home.gif") %>
-        <h4>Browse all plants</h4>
-        <p>Get wonderful plants from our community</p>
-        <%= link_to "Browse all plants", listings_path,class: "btn-orange-card"%>
-      </div>
-
-      <div class="card" id="card-homepage">
-        <%= image_tag ("picture-card-home.gif") %>
-        <h4>Swap & Review</h4>
-        <p>Swap your plants with other plants lover</p>
-        <%= link_to "Start Swapping", listings_path, class: "btn-orange-card"%>
-      </div>
-
-      <div class="card" id="card-homepage">
-        <%= image_tag ("picture-card-home.gif") %>
-        <h4>Join the community</h4>
-        <p>Become a plant master with the knowledge of our community</p>
-        <%= link_to "Create a profile", new_user_registration_path, class: "btn-orange-card"%>
-      </div>
-
+  
+  <div class="cards" id="home-page-cards">
+    <div class="card">
+      <%= image_tag ("picture-card-home.gif") %>
+      <h4>Browse all plants</h4>
+      <p>Get wonderful plants from our community</p>
+      <%= link_to "Browse all plants", listings_path,class: "btn-orange-card"%>
     </div>
+
+    <div class="card">
+      <%= image_tag ("picture-card-home.gif") %>
+      <h4>Swap & Review</h4>
+      <p>Swap your plants with other plants lover</p>
+      <%= link_to "Start Swapping", listings_path, class: "btn-orange-card"%>
+    </div>
+    
+    <div class="card">
+      <%= image_tag ("picture-card-home.gif") %>
+      <h4>Join the community</h4>
+      <p>Become a plant master with the knowledge of our community</p>
+      <%= link_to "Create a profile", new_user_registration_path, class: "btn-orange-card"%>
+    </div>
+
   </div>
 </div>
-
-
-
+</div>
