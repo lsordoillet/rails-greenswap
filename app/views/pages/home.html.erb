@@ -5,10 +5,8 @@
   <div class="container">
     <!-- SEARCH BAR --->
     <div id="content">
+
       <h1 class="text-left" style="padding-left:40px; padding-bottom:10px;">Local marketplace for plants</h1>
-
-
-
       <%= form_tag listings_path, method: :get do %>
       <div class="search-form-control form-group input-group">
         <%= text_field_tag :query,
@@ -38,7 +36,7 @@
   How it works</h1>
   <h3 class="text-center" style="margin-bottom: 30px;">
   Become a greenswap member</h3>
-
+  
   <div class="cards" id="home-page-cards">
     <div class="card">
       <%= image_tag ("picture-card-home.gif") %>
@@ -53,7 +51,7 @@
       <p>Swap your plants with other plants lover</p>
       <%= link_to "Start Swapping", listings_path, class: "btn-orange-card"%>
     </div>
-
+    
     <div class="card">
       <%= image_tag ("picture-card-home.gif") %>
       <h4>Join the community</h4>
