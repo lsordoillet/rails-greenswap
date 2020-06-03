@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <div>
   <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
    <h3> Plant Category </h3>
@@ -9,12 +10,22 @@
    <%= f.submit "Search" %>
    <% end %>
    </div>   
+=======
+<!-- <h1><%= content_for(:title, "LOCAL GOODIES") %></h1>
+-->
+<!------------------ CARDS CONTAINER ------------------->
+
+<div class="container">
+
+>>>>>>> master
 
 
 <div class="container">
 
   <div class="cards">
+
    <% @listings.each do |listing| %>
+<<<<<<< HEAD
     <div class="card" style="width: 16rem;">
       <% if !listing.photos.first.nil?%>
       <%= cl_image_tag listing.photos.first.key, :width=>250, :height=>250, :gravity=>"faces", :crop=>"fill" %>
@@ -35,6 +46,34 @@
 
    
     </div>
+=======
+   <%= link_to listing_path(listing) do %>
+    <div class="card" id="index-card">
+    <% if !listing.photos.first.nil?%>
+     <%= cl_image_tag listing.photos.first.key, :width=>300, :height=>170, :gravity=>"faces", :crop=>"fill" %>
+     <% else %>
+     <%= image_tag "placeholder.png", alt: "placeholder-img", height: 170, width: 300 %>
+     <% end %>
+     <div class="card-listing-infos">
+       <h4 class="card-listing-infos"><%= listing.title %></h4>
+     </div>
+     <div>
+       <div class="flex-container-grid">
+        <p><b>Category:</b>  <%= listing.plant_category %></p>
+        <p><b>Type:  </b><%= listing.listing_type %></p>
+        <p><b>Care Level: </b><%= listing.care_level_category %></p>
+       </div>
+     </div>
+   </div>
+  <% end %>
+<% end %>
+
+
+</div>
+</div>
+<!------------------ END OF CARD CONTAINER ------------------->
+
+>>>>>>> master
 
   
   </div>
