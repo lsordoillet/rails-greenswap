@@ -1,11 +1,17 @@
-<!-- <h1><%= content_for(:title, "LOCAL GOODIES") %></h1>
- -->
-<!------------------ CARDS CONTAINER ------------------->
+  <div>
+  <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
+   <h3> Plant Category </h3>
+   <%= f.collection_check_boxes :plant_category, Listing::PLANT_CATEGORY , :to_s, :to_s %>
+    <h3> Listing Type </h3>
+   <%= f.collection_check_boxes :listing_type, Listing::LISTING_TYPE , :to_s, :to_s %>
+    <h3> Care Level </h3>
+   <%= f.collection_check_boxes :care_level_category, Listing::CARE_LEVEL_CATEGORY , :to_s, :to_s %>
+   <%= f.submit "Search" %>
+   <% end %>
+   </div>   
+
 
 <div class="container">
-
-
-
 
   <div class="cards">
    <% @listings.each do |listing| %>
@@ -24,33 +30,11 @@
         <p class="card-listing-pricing"><%= listing.listing_type %></p>
       </div>
     </div>
+     <% end %>
     </div>
 
-    <% end %>
+   
     </div>
-<<<<<<< HEAD
-   </div>
+
+  
   </div>
-
-<div class="col-xs-12 col-sm-8">
- <div id="listings">
-   <% @listings.each do |listing| %>
-     <button class="btn-primary">
-       <%= listing.plant_category_list %>
-     </button>
-     <button class="btn-danger">
-       <%= listing.listing_type_list %>
-     </button>
-     <button class="btn-danger">
-       <%= listing.care_level_category_list %>
-     </button>
-   <% end %>
- </div>
-</div>
-</div>
-=======
-</div>
-<!------------------ END OF CARD CONTAINER ------------------->
-
-
->>>>>>> master

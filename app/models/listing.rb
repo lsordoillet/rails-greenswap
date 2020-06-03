@@ -1,18 +1,4 @@
 class Listing < ApplicationRecord
-
-  include PgSearch::Model
-  
-  pg_search_scope :global_search,
-    against: [ :name ],
-    associated_against: {
-      plant_category: [:name],
-      listing_type: [:name],
-      care_level_category: [:name]
-    },
-    using: {
-      tsearch: {any_word: true}
-    }
-
   PLANT_CATEGORY = ["Seeds", "Cuttings", "Plants"]
   LISTING_TYPE = ["Swap", "Giveaway", "Sell"]
   CARE_LEVEL_CATEGORY = ["Easy", "Medium", "Difficult"]
@@ -29,5 +15,12 @@ class Listing < ApplicationRecord
   validates :care_level_category, presence: true, inclusion: { in: CARE_LEVEL_CATEGORY }
 
   has_many_attached :photos
+
+#include PgSearch::Model
+ # pg_search_scope :global_search,
+  #  against: [ :name, :plant_category, :listing_type, :care_level_category ],
+   # using: {
+    #  tsearch: { prefix: true }
+    #}
 end
  

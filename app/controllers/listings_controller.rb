@@ -3,31 +3,22 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:destroy, :show]
 
   def index
-<<<<<<< HEAD
     @listings = policy_scope(Listing)
-    if params["search"]
-      @filter = params["search"]["plant_category"]["listing_type"]["care_level_category"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
-      @listings = Listing.all.global_search("#{@filter}")
-    else
-      @listings = Listing.all
+    if params["search"].present?
+      #@filter = params["search"]["plant_category"]["listing_type"]["care_level_category"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
+      if params["search"]["plant_category"].present? && params["search"]["plant_category"].second.present?
+        @listings = @listings.where(plant_category: params["search"]["plant_category"])
+      end
+      if params["search"]["listing_type"].present? && params["search"]["listing_type"].second.present?
+       @listings = @listings.where(listing_type: params["search"]["listing_type"])
+      end
+      if params["search"]["care_level_category"].present? && params["search"]["care_level_category"].second.present?
+       @listings = @listings.where(care_level_category: params["search"]["care_level_category"])
+      end
     end
-    respond_to do |format|
-      format.html
-      format.js
-    end  
-=======
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query OR postcode ILIKE :query OR city ILIKE :query"
-
-      @listings = policy_scope(Listing).where(sql_query, query: "%#{params[:query]}%")
-
-      # TODO: Searches for title, description, city and postcode. Algolia? Does Algolia mess up with non-address searches?
-
-    else
-      @listings = policy_scope(Listing)
-    end
->>>>>>> master
   end
+
+
 
   def new
     @listing = Listing.new
