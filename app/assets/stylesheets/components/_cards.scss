@@ -50,9 +50,9 @@
 }
 
 
-// CARD FOR INDEX //
+// CARD LISTING FOR INDEX //
 
-.card-plant {
+.card-listing {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -65,27 +65,27 @@
   flex: 0 1 24%;
 }
 
-.card-plant > img {
+.card-listing > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-plant h2 {
+.card-listing h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
   padding: 10px;
 }
 
-.card-plant p {
+.card-listing p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
 
-.card-plant .card-plant-infos {
+.card-listing .card-listing-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -93,7 +93,7 @@
   position: relative;
 }
 
-.card-plant-infos .card-plant-user {
+.card-listing-infos .card-listing-user {
   position: absolute;
   right: 16px;
   top: -20px;
