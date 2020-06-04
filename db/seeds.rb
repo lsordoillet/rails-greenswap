@@ -16,12 +16,14 @@ puts "Creating users"
 
 user1 = User.create!(
   email: "plantlover@garden.com",
-  password: "123456"
+  password: "123456",
+  username: "PlantLover"
   )
 
 user2 = User.create!(
   email: "greensoul@jungle.com",
-  password: "123456"
+  password: "123456",
+  username: "GreenSoul"
   )
 puts "maybe done (check if there are any errors)"
 puts "Creating listings"
