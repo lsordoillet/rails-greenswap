@@ -22,9 +22,7 @@
 // ALL BUTTONS //
 
 .btn-orange {
-  padding-right: 12px;
   color:#FAFAFA !important;
-  padding-left: 12px;
   background-color:$orange;
   padding: 8px 12px;
   font-weight: bold;
@@ -67,6 +65,7 @@
   font-size: small!important;
   border-style: outset!important;
   border-color: white!important;
+  margin-left: 7px!important;
 }
 .btn-orange-filter2 {
   padding-right: 5px;

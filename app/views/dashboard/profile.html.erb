@@ -27,15 +27,15 @@
               <h2><%= listing.title %></h2>
               <p><%= listing.description %> </p>
               <div class="card-btns">
-              <%= link_to 'Edit', edit_listing_path(listing), class: "btn-orange" %>
-              <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-orange"%>
+              <%= link_to 'Edit', edit_listing_path(listing) %>
+              <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }%>
+             </div>
             </div>
-            </div>
-            <!-- #TODO: add buttons to delete and edit listing. maybe type of listing/price?-->
           </div>
         <% end %>
       <% end %>
     </div>
+    <!--END OF MY LISTINGS TAB CONTENT-->
 
     <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
       <!--FAVORITES TAB CONTENT-->
