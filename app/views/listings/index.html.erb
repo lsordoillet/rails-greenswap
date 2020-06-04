@@ -1,8 +1,10 @@
 <!-- <h1><%= content_for(:title, "LOCAL GOODIES") %></h1> -->
 
 <div class="flex-container">
+
+<!----------------- FILTERING BOX ------------->
   <div class="filter">
-  <h3> Filter: </h3>
+  <!-- <h3> Filter: </h3> -->
   <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
   <div class="category">
    <p id="category-name"> Plant Category </p>
@@ -23,11 +25,16 @@
    </div>
   </div>
   <div class="flex-container">
-   <%= f.submit "Apply", class: "btn-orange-filter1" %>
+   <%= f.submit "Apply", class: "btn-orange-filter1", style: "margin-left: 30px;" %>
    <%= link_to 'Reset', listings_path, class: "btn-orange-filter2" %>
-  </div> 
+  </div>
    <% end %>
-   </div>   
+   </div>
+
+
+   <!----------------- END OF FILTERING BOX ------------->
+
+    <!--------------  CARDS ------------->
 
   <div class="cards">
    <% @listings.each do |listing| %>
@@ -53,8 +60,8 @@
 <% end %>
 
 
-   
+
     </div>
 
-  
+
   </div>
