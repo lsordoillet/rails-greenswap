@@ -1,0 +1,7 @@
+  <%= simple_form_for current_user ,url: profile_update_path, method: :patch do |f| %>
+      <%= f.input :description %>
+      <%= f.input :avatar, as: :file %>
+      <%= f.submit "Edit profile", class: "btn-orange-submit" %>
+    <% end %>
+    
+    

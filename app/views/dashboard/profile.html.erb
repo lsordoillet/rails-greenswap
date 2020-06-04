@@ -1,4 +1,17 @@
 <div class="container">
+ <div class="container">
+  <div class="flex-container">
+   <%= cl_image_tag current_user.avatar.key, :width=>170, :height=>170, :radius=>"max", :gravity=>"faces", :crop=>"fill" %>
+  <div class="details">
+   <h2> <%= current_user.username %> </h2>
+   <p> <%= current_user.description %></p>
+   <div class="link">
+    <%= link_to 'Edit', profile_edit_path(current_user), class: "btn-orange" %>
+   </div>
+  </div>
+ </div>
+ </div>
+ <div class="container">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="my-listings-tab" data-toggle="tab" href="#my-listings" role="tab" aria-controls="my-listings" aria-selected="true">My Listings</a>
@@ -42,4 +55,5 @@
       <p>My Bookings...</p>
     </div>
   </div>
+ </div>
 </div>
