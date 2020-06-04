@@ -1,4 +1,10 @@
 <%= link_to 'Back', listings_path %>
+<% if @current_user == @listing.user  %>
+ <%= link_to 'Edit', edit_listing_path(@listing), class: "btn-orange" %>
+ <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-orange"%>
+<% end %>
+
+
 
 <div class="container">
       <% @listing.photos.each do |photo| %>
@@ -22,6 +28,8 @@
        </div>
         <p> <%= @listing.description %></p>
       </div>
+
+      if
 
       <div class="card">
         <!-- <%= image_tag ("picture-card-home.gif") %> -->

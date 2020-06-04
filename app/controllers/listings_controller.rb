@@ -45,9 +45,19 @@ class ListingsController < ApplicationController
     end
   end
 
+  def update
+    @listing = Listing.find(params[:id])
+    authorize @listing
+    if @listing.update(listing_params)
+      redirect_to @listing, notice: 'Listing was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @listing.destroy
-    redirect_to listings_path, notice: "Listing was deleted!"
+    redirect_to profile_path(current_user), notice: "Listing was deleted!"
   end
 
   private

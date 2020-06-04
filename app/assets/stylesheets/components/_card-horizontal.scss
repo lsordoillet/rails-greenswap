@@ -29,4 +29,7 @@
 
 .card-horizontal .card-horizontal-infos {
   padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

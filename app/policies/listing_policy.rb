@@ -16,6 +16,10 @@ class ListingPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    true
+  end
+
   def destroy?
     true
   end
