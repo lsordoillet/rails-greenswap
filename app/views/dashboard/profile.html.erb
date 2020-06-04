@@ -26,6 +26,10 @@
             <div class="card-horizontal-infos">
               <h2><%= listing.title %></h2>
               <p><%= listing.description %> </p>
+              <div class="card-btns">
+              <%= link_to 'Edit', edit_listing_path(listing), class: "btn-orange" %>
+              <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-orange"%>
+            </div>
             </div>
             <!-- #TODO: add buttons to delete and edit listing. maybe type of listing/price?-->
           </div>
