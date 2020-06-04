@@ -1,14 +1,35 @@
-<!-- <h1><%= content_for(:title, "LOCAL GOODIES") %></h1>
--->
-<!------------------ CARDS CONTAINER ------------------->
+<!-- <h1><%= content_for(:title, "LOCAL GOODIES") %></h1> -->
 
-<div class="container">
-
-
-
+<div class="flex-container">
+  <div class="filter">
+  <h3> Filter: </h3>
+  <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
+  <div class="category">
+   <p id="category-name"> Plant Category </p>
+   <div class="advancedsearch">
+    <%= f.collection_check_boxes :plant_category, Listing::PLANT_CATEGORY , :to_s, :to_s %>
+   </div>
+  </div>
+  <div class="category">
+   <p id="category-name"> Listing Type </p>
+   <div class="advancedsearch">
+    <%= f.collection_check_boxes :listing_type, Listing::LISTING_TYPE , :to_s, :to_s %>
+   </div>
+  </div>
+  <div class="category">
+    <p id="category-name"> Care Level </p>
+   <div class="advancedsearch">
+    <%= f.collection_check_boxes :care_level_category, Listing::CARE_LEVEL_CATEGORY , :to_s, :to_s %>
+   </div>
+  </div>
+  <div class="flex-container">
+   <%= f.submit "Apply", class: "btn-orange-filter1" %>
+   <%= link_to 'Reset', listings_path, class: "btn-orange-filter2" %>
+  </div> 
+   <% end %>
+   </div>   
 
   <div class="cards">
-
    <% @listings.each do |listing| %>
    <%= link_to listing_path(listing) do %>
     <div class="card" id="index-card">
@@ -32,8 +53,8 @@
 <% end %>
 
 
-</div>
-</div>
-<!------------------ END OF CARD CONTAINER ------------------->
+   
+    </div>
 
-
+  
+  </div>

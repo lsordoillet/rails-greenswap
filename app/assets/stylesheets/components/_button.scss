@@ -55,5 +55,35 @@
 }
 
 
+// Filter BUTTONS //
+.btn-orange-filter1 {
+  padding-right: 5px !important;
+  color:#FAFAFA !important;
+  padding-left: 5px!important;
+  background-color:$orange!important;
+  font-weight: bold!important;
+  width: 70px!important;
+  display: block!important;
+  font-size: small!important; 
+  border-style: outset!important;
+  border-color: white!important;
+}
+.btn-orange-filter2 {
+  padding-right: 5px;
+  color:#FAFAFA !important;
+  padding-left: 5px;
+  background-color:$orange;
+  font-weight: bold;
+  width: 50px;
+  display: block;
+  font-size: small;
+  border-style: outset;
+  border-color: white;
+  align-items: flex-start;
+  text-align: center;
+  border-width: 2px;
+}
+
+
 
 
