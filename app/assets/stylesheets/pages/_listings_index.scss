@@ -1,0 +1,25 @@
+p {
+   font-weight: 300;
+}
+
+
+.advancedsearch {
+    display: grid;
+    margin-left: 10px;
+}
+.filter {
+    margin: 20px;
+    width: 200px;
+    height: 500px;
+    border-style: inset;
+    border-radius: 5px;
+
+}
+
+.flex-container {
+    display: flex;
+}
+#category-name {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}

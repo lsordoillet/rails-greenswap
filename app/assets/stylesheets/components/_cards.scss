@@ -9,12 +9,12 @@
 // CARDS BASIC STYLE //
 
 .card {
-  background-color:#FDF8EE ;
+  background-color:$white;
   width: 302px;
   border-radius: 3px;
-  -webkit-box-shadow: 9px 9px 7px 0px rgba(41,41,41,0.39);
-  -moz-box-shadow: 9px 9px 7px 0px rgba(41,41,41,0.39);
-  box-shadow: 9px 9px 7px 0px rgba(41,41,41,0.39);
+  -webkit-box-shadow: 0px 5px 27px -11px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 5px 27px -11px rgba(0,0,0,0.35);
+  box-shadow: 0px 5px 27px -11px rgba(0,0,0,0.35);
   text-align: center;
   padding: 5px;
   border: 1px solid rgb(230,230,230);
@@ -69,6 +69,7 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+  border-radius: 3px;
 }
 
 .card-listing h2 {
