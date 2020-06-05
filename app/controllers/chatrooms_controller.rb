@@ -4,15 +4,20 @@ class ChatroomsController < ApplicationController
   def new
     @chatroom = Chatroom.new
     @chatroom.user = current_user
-    @chatroom.listing = @listing
+    @chatroom.listing = Listing.find(params[:listing_id])
     @chatroom.status = "pending"
     @chatroom.save
-    render :show
     authorize @chatroom
-    # redirect_to @chatroom
+
+    render :show
+    # ?redirect_to @chatroom
   end
   
   def show
+    @message = Message.new
+    authorize @message
+    # I also created a message policy.. required? TODO: If not required, delete message policy
+    # without the message form, it "works"
   end
 
   def set_chatroom
