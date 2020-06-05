@@ -8,7 +8,11 @@ Because for now its always creating a new chatroom? If the current user is not t
 <%= link_to 'GOTO CHAT', listing_chatroom_path(@listing), class: "btn-orange" %>
 <%end%>
 -->
-<%= link_to 'BUY', new_listing_chatroom_path(@listing), class: "btn-orange" %>
+<%if @chatroom %>
+<%= link_to 'Go to chat', chatroom_path(@chatroom), class: "btn-orange" %>
+<% else %>
+<%= link_to 'BOOOOK', listing_chatrooms_path(@listing), method: :post, class: "btn-orange" %>
+<% end %>
 
 <% if @current_user == @listing.user  %>
  <%= link_to 'Edit', edit_listing_path(@listing), class: "btn-orange" %>
