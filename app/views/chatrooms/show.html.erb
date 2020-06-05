@@ -1,5 +1,6 @@
 Listing id: <%=@chatroom.listing.id%>
 Chatroom id: <%=@chatroom.id%>
+CURRENT USER: <%=current_user.username%>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
@@ -14,4 +15,5 @@ Chatroom id: <%=@chatroom.id%>
 
 <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Message #{@chatroom.listing.user.username}" %>
+  <%= f.submit "Send", class: "btn btn-primary" %>
 <% end %>
