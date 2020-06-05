@@ -5,11 +5,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin-bottom:10px;
+
 }
 
 .card-horizontal img {
   height: 100%;
   width: 120px;
+  margin:0 8px;
   object-fit: cover;
 }
 
@@ -25,8 +28,19 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  padding-right: 30px;
+
 }
 
 .card-horizontal .card-horizontal-infos {
   padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.card-btns a {
+  display:flex;
+  margin-bottom:4px;
+  text-align:center;
 }

@@ -1,0 +1,46 @@
+
+.footer {
+    background:$greenswap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    // padding: 0px 50px;
+    color:  #F3B88A;
+    width:100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+  }
+  .footer-links a {
+    color: white;
+    opacity: 1;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0px 10px;
+  }
+  .footer-links a:hover {
+    opacity: 0.5;
+  }
+  .footer .fa-heart {
+    color: #D23333;
+  }
+  .footer-copyright{
+    color: white;
+    text-align: right;
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .main {
+    flex-grow: 1;
+  }
+
