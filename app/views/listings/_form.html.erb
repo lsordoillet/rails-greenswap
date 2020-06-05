@@ -4,7 +4,7 @@
       <%= f.input :postcode %>
       <%= f.input :city %>
       <%= f.input :description %>
-      <%= f.input :active%>
+      <%= f.input :active, as: :boolean, boolean_style: :inline %>
       <%= f.input :quantity %>
       <%= f.input :price %>
       <%= f.input :plant_category, collection: Listing::PLANT_CATEGORY %>
@@ -12,5 +12,6 @@
       <%= f.input :care_level_category, collection: Listing::CARE_LEVEL_CATEGORY %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit "Edit", class: "btn-orange" %>
+      <%= link_to 'Cancel', listings_path, class: "btn-orange" %>
     <% end %>
 

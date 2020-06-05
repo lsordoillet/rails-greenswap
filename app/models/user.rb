@@ -13,6 +13,6 @@ class User < ApplicationRecord
                                     format: { with: VALID_USERNAME_REGEX },
                                     uniqueness: { case_sensitive: false }
   
-  validates :description, length: { maximum: 150,
+  validates :description, length: { maximum: 300,
   too_long: "%{count} characters is the maximum allowed" }
 end
