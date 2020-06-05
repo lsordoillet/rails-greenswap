@@ -21,9 +21,15 @@
       <li class="nav-item">
       <%= link_to "Profile ", profile_path,class: "nav-link"%>
     </li>
-  <!--   <li class="nav-item">
-      <%= link_to "Another action TO DO", "#",class: "nav-link"%>
-    </li> -->
+     <li class="nav-item">
+      <%= link_to profile_path, class: "avatar" do %>
+       <% if current_user.avatar.attached?%>
+        <%= cl_image_tag current_user.avatar.key, :width=>40, :height=>40, :gravity=>"faces", :crop=>"fill",:radius=>"max", :background=>"#00AF8A" %>
+       <% else %>
+        <%= image_tag "placeholder.png", alt: "placeholder-img", :width=>40, :height=>40, :gravity=>"faces", :crop=>"fill",:radius=>"max", :background=>"#00AF8A" %>
+       <% end %>
+      <% end %>
+    </li> 
     <li class="nav-item">
       <%= link_to "Log out", destroy_user_session_path,  method: :delete, class: "nav-link" %>
     </li>

@@ -4,8 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :listings
+
   has_many :chatrooms
   has_many :messages#, through: :chatrooms
+
+  has_one_attached :avatar
+
 
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\z/
   validates :username, presence: true, length: { maximum: 20 },

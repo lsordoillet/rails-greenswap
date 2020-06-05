@@ -1,3 +1,4 @@
+
 <%= link_to 'Back', listings_path %>
 
 <!-- TRYING TO MAKE THE REQUEST BUTTON "SMART"
@@ -26,34 +27,77 @@ Because for now its always creating a new chatroom? If the current user is not t
   <div class="row justify-content-center">
       <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
   <% end %>
+
+<div class="show-function">
+  <div class="show-back">
+<%= link_to 'Go back to listings', listings_path %>
+  </div>
+    <div class="show-edit-delete">
+    <% if @current_user == @listing.user  %>
+      <%= link_to 'Edit', edit_listing_path(@listing) %>
+        <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+
   </div>
 </div>
-
-      <div class="cards" id="home-page-cards">
+  <div class="show-cards">
+    <div class="show-pic-user" style="margin-top: 30px">
+            <% @listing.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
+            <% end %>
+        <div class="card" id=show-user style="margin-right: 5px">
+          <div class="user-avatar-usern">
+            <div class="show-avatar">
+            <% if @listing.user.avatar.attached? %>
+               <%= cl_image_tag @listing.user.avatar.key, :width=>100, :height=>100, :gravity=>"faces", :crop=>"fill" %>
+             <% else %>
+               <%= image_tag "placeholder.png", alt: "placeholder-img", :width=>100, :height=>100 %>
+              <% end %>
+              </div>
+                <div class="show-username">
+            <h6><%= @listing.user.username %></h6>
+          </div>
+              </div>
+              <div class="show-user-des">
+            <p><%= @listing.user.description %></p>
+              </div>
+              <%= link_to "Contact #{@listing.user.username}", root_path, class: "btn-orange" %>
+        </div>
+    </div>
+  <div class="cards" style="margin-top: 30px">
         <div class="card w-75" id="show-card" style="margin-right: 50px; background-color: white;">
           <div class="show-header">
         <h4><%= @listing.title %></h4>
-        <h5>
+        <div class="price-zipcode">
+        <div class="show-price">
+        <h5>Type</h5>
+        <p>
           <% if@listing.listing_type == "Sell" %>
          <%= @listing.price %>€
           <% else %>
           <%= @listing.listing_type %>
           <% end %>
-         </h5>
+         </p>
+         </div>
+         <div class="show-zip-code">
+         <h5>ZipCode</h5>
+         <p><%= @listing.postcode %></p>
+       </div>
+
        </div>
         <p> <%= @listing.description %></p>
       </div>
-
-      if
-
-      <div class="card">
-        <!-- <%= image_tag ("picture-card-home.gif") %> -->
-        <h4>User Card (profile pic + username)</h4>
-        <p>something about user+average rating</p>
-        <%= link_to "Start a Message", class: "btn-blue"%>
       </div>
-      </div>
+    </div>
+ </div>
 
 
-<h1>Map</h1>
+
+
+
+
+
+
+
+
 

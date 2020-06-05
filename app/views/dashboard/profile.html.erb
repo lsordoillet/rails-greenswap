@@ -1,4 +1,22 @@
 <div class="container">
+ <div class="container">
+  <div class="flex-container">
+   <%if current_user.avatar.attached?%>
+    <%= cl_image_tag current_user.avatar.key, :width=>170, :height=>170, :radius=>"max", :gravity=>"faces", :crop=>"fill" %>
+   <% else %>
+    <%= image_tag "placeholder.png", alt: "placeholder-img", :width=>170, :height=>170, :radius=>"max", :gravity=>"faces", :crop=>"fill" %>
+   <% end %>
+
+  <div class="details">
+   <h2> <%= current_user.username %> </h2>
+   <p> <%= current_user.description %></p>
+   <div class="link">
+    <%= link_to 'Edit', profile_edit_path(current_user), class: "btn-orange" %>
+   </div>
+  </div>
+ </div>
+ </div>
+ <div class="container">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="my-listings-tab" data-toggle="tab" href="#my-listings" role="tab" aria-controls="my-listings" aria-selected="true">My Listings</a>
@@ -26,16 +44,17 @@
             <div class="card-horizontal-infos">
               <h2><%= listing.title %></h2>
               <p><%= listing.description %> </p>
+
               <div class="card-btns">
-              <%= link_to 'Edit', edit_listing_path(listing), class: "btn-orange" %>
-              <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-orange"%>
+              <%= link_to 'Edit', edit_listing_path(listing) %>
+              <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }%>
+             </div>
             </div>
-            </div>
-            <!-- #TODO: add buttons to delete and edit listing. maybe type of listing/price?-->
           </div>
         <% end %>
       <% end %>
     </div>
+    <!--END OF MY LISTINGS TAB CONTENT-->
 
     <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
       <!--FAVORITES TAB CONTENT-->
@@ -46,4 +65,5 @@
       <p>My Bookings...</p>
     </div>
   </div>
+ </div>
 </div>
