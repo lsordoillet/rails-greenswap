@@ -6,7 +6,7 @@
    <% else %>
     <%= image_tag "placeholder.png", alt: "placeholder-img", :width=>170, :height=>170, :radius=>"max", :gravity=>"faces", :crop=>"fill" %>
    <% end %>
-  
+
   <div class="details">
    <h2> <%= current_user.username %> </h2>
    <p> <%= current_user.description %></p>
@@ -42,10 +42,8 @@
               <% end %>
             </div>
             <div class="card-horizontal-infos">
-              <div class="profile-title-des">
               <h2><%= listing.title %></h2>
               <p><%= listing.description %> </p>
-
 
               <div class="card-btns">
               <%= link_to 'Edit', edit_listing_path(listing) %>
@@ -69,4 +67,3 @@
   </div>
  </div>
 </div>
-
