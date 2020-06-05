@@ -8,10 +8,9 @@ p {
     margin-left: 10px;
 }
 .filter {
-    margin: 20px;
-    width: 200px;
+    margin: 0 20px 20px 20px;
+    width: 220px;
     height: 500px;
-    border-style: inset;
     border-radius: 5px;
 }
 
@@ -24,4 +23,12 @@ p {
     margin-bottom: 5px;
     text-align: center;
     font-weight:bold;
+}
+
+.collection_check_boxes {
+
+}
+
+#cards-index {
+  border-left: solid 1px black;
 }
