@@ -8,7 +8,6 @@ class Listing < ApplicationRecord
   validates :postcode, presence: true
   validates :city, presence: true
   validates :description, presence: true
-  validates :active, presence: true
   validates :quantity, presence: true
   validates :plant_category, presence: true, inclusion: { in: PLANT_CATEGORY }
   validates :listing_type, presence: true, inclusion: { in: LISTING_TYPE }
