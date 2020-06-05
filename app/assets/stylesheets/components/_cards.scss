@@ -41,7 +41,6 @@
 
 
 .show-header{
-  display: flex;
   justify-content: space-between;
 }
 
@@ -50,6 +49,33 @@
 }
 
 
+.price-zipcode{
+    display: flex;
+    justify-content: space-between;
+    width: 22%;
+}
+
+.show-function {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.show-back{
+  margin-left: 10px;
+}
+
+// CARD FOR PROFILE //
+
+.card-btns{
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 50%;
+}
+
+.profile-title-des{
+  width: 90%;
+}
 // CARD LISTING FOR INDEX //
 
 .card-listing {
@@ -126,3 +152,4 @@
 a:-webkit-any-link {
     text-decoration: none;
 }
+
