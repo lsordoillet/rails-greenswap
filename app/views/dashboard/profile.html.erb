@@ -4,7 +4,7 @@
    <%if current_user.avatar.attached?%>
     <%= cl_image_tag current_user.avatar.key, :width=>170, :height=>170, :radius=>"max", :gravity=>"faces", :crop=>"fill" %>
    <% else %>
-    <%= image_tag "placeholder.png", alt: "placeholder-img", :width=>170, :height=>170, :radius=>"max", :gravity=>"faces", :crop=>"fill" %>
+    <%= image_tag "placeholder.png", alt: "placeholder-img", class: "avatar-big", :width=>170, :height=>170, :radius=>"max", :gravity=>"faces", :crop=>"fill" %>
    <% end %>
   
   <div class="details">
