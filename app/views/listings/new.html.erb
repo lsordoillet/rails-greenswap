@@ -1,9 +1,9 @@
+ <div class="form">
  <%= simple_form_for(@listing) do |f| %>
       <%= f.input :title %>
       <%= f.input :postcode %>
       <%= f.input :city %>
       <%= f.input :description %>
-      <%= f.input :active%>
       <%= f.input :quantity %>
       <%= f.input :price %>
       <%= f.input :plant_category, collection: Listing::PLANT_CATEGORY %>
@@ -12,3 +12,4 @@
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit "Add listing", class: "btn-orange" %>
     <% end %>
+</div>
