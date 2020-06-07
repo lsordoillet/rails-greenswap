@@ -8,7 +8,7 @@ class ChatroomsController < ApplicationController
     @chatroom.status = "pending"
     @chatroom.save
     authorize @chatroom
-    # render :show
+    # render :show doesnt work because it doesnt actually call the method?
     redirect_to chatroom_path(@chatroom)
     # ?redirect_to @chatroom
   end

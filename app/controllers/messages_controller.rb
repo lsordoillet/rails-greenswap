@@ -6,13 +6,17 @@ class MessagesController < ApplicationController
     @message.user = current_user
     
     if @message.save
-      redirect_to chatroom_path(@chatroom), anchor: "message-#{@message.id}" #TODO: is chatroom_path here correct?
-      
-
+      redirect_to chatroom_path(@chatroom), anchor: "message-#{@message.id}" #TODO: is chatroom_path here correct? 
     else
       render "chatrooms/show"
     end
+
+    ChatroomChannel.broadcast_to(
+      @chatroom,
+      render_to_string(partial: "message", locals: { message: @message })
+    )
     authorize @message
+
   end
 
   private

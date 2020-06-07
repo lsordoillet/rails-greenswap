@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
   before_action :set_dashboard, only: [:update]
   def profile
     @listings = current_user.listings
+    @my_chatrooms = current_user.chatrooms # Maybe wrong?
   end
 
   def update
