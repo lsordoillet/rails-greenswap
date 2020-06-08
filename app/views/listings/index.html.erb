@@ -36,32 +36,26 @@
 
     <!--------------  CARDS ------------->
 
-  <div class="cards" id="cards-index">
+  <div class="cards">
    <% @listings.each do |listing| %>
-   <%= link_to listing_path(listing) do %>
-    <div class="card" id="index-card">
-    <% if !listing.photos.first.nil?%>
-     <%= cl_image_tag listing.photos.first.key, :width=>300, :height=>170, :gravity=>"faces", :crop=>"fill" %>
-     <% else %>
-     <%= image_tag "placeholder.png", alt: "placeholder-img", height: 170, width: 300 %>
+    <%= link_to listing_path(listing) do %>
+      <div class="card card-index" id="index-card">
+        <% if !listing.photos.first.nil?%>
+          <%= cl_image_tag listing.photos.first.key, :gravity=>"faces", :crop=>"fill", class:"card-index-img" %>
+        <% else %>
+          <%= image_tag "placeholder.png", alt: "placeholder-img", class:"card-index-img" %>
+        <% end %>
+        <div class="card-index-details">
+          <span class="card-index-details-title"><%= listing.title %></span>
+          <p class="card-index-details-description"> <b> <%= listing.plant_category %>  -   <%= listing.listing_type %></b></p>
+        </div>
+        <div class="card-index-infos">
+          <p class="card-index-infos-item"><span class="card-index-infos-category">Care Level:</span><%= listing.care_level_category %></p>
+          <p class="card-index-infos-item"><span class="card-index-infos-category">Location:</span><%= listing.postcode %> - <%= listing.city %></p>
+        </div>
+      </div>
      <% end %>
-     <div class="card-listing-infos">
-       <h4 class="card-listing-infos" style="margin-bottom: 0px;"><%= listing.title %></h4>
-        <p class="text-center" style="margin-bottom: 10px;"> <b> <%= listing.plant_category %>  -   <%= listing.listing_type %></b></p>
-     </div>
-     <div>
-       <div class="flex-container-grid">
-
-        <p><b>Care Level: </b><%= listing.care_level_category %></p>
-
-        <p><b>Location: </b><%= listing.postcode %> - <%= listing.city %></p>
-       </div>
-     </div>
-    </div>
-   <% end %>
-  <% end %>
- </div>
-
-
+    <% end %>
+  </div>
     <!--------------  END OF CARDS ------------->
 </div>

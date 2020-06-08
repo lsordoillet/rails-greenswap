@@ -2,12 +2,42 @@
   background-color: #FFFFFF;
 }
 
-.h2 {
-font-weight: 900;
-font-size: 48px;
-line-height: 56px;
+#content {
+  padding: 280px 25% 25%;
+}
+
+
+h1.home-title {
+
+  padding-bottom:36px;
+  font-size:52px;
+   .home-title-decorator {
+    color:$orange;
+
+  }
 
 }
+
+h2.home-title {
+  margin-top: 60px;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 56px;
+}
+
+span.home-description {
+  color:#CDCACA;
+  text-align:center;
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-size: 21px;
+}
+
+.home-form {
+  max-width: 510px;
+}
+
 
 #home-page-cards h4 {
   font-size:20px;
