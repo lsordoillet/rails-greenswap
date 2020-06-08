@@ -1,5 +1,5 @@
 <!--------------  BUTTONS ------------->
-<div class="show-function">
+<div class="container show-function">
   <div class="show-back">
     <%= link_to 'Go to all listings', listings_path %>
   </div>
@@ -12,15 +12,16 @@
 </div>
 
 
-<div class="container-show">
- <div class="cards">
+<div class="container">
+  <div class="row">
+ <div class="col-8">
   <!--------------  PICTURES ------------->
-  <div class="pictures">
-    <% @listing.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
+  <div class="grid-settings <%= grid_builder(@listing.photos) %>">
+    <% @listing.photos.each_with_index do |photo, index| %>
+    <%= cl_image_tag photo.key, crop: :fill, class:"image-grid-item image-grid-item-#{index}"  %>
     <% end %>
   </div>
- </div>
+
 
 <!-------------- LISTINGS DETAILS ------------->
   <div class="show-card" style="margin-right: 50px; background-color: white;">
@@ -46,10 +47,11 @@
         <p> <%= @listing.description %></p>
       </div>
    </div>
+  </div>
 
-</div>
 
    <!-------------- USER CARD ------------->
+   <div class="col-4">
   <div class="card card-user">
     <div class="card-user ">
       <div class="card-user-avatar">
@@ -67,7 +69,7 @@
     </div>
    </div>
     <div class="btn-orange">
-      <%if @current_user == @listing.user %>
+      <%if current_user == @listing.user %>
        <%= link_to 'Edit Listing', edit_listing_path(@listing) %>
        <%elsif @current_user != @listing.user %>
        <!-- If it's not your listing and you havent requested it yet -->
@@ -77,7 +79,10 @@
       <% end %>
     </div>
 
+   </div>
   </div>
+ </div>
+</div>
 
 
 

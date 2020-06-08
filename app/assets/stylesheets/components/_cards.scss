@@ -104,21 +104,24 @@ a:-webkit-any-link {
   margin: 12px;
   position:relative;
 
-  .card-user-avatar img {
-    border-radius:10px;
-    display: block;
-    height:100px;
-    width:100px;
-  }
+   .card-user-avatar img {
+     border-radius:10px;
+     display: block;
+     height:100px;
+     width:100px;
+   }
+ }
 
  .card-user-description{
-  width: 90%;
-}
-}
+   margin: 20px;
+    text-align: left;
+ }
 
-
-.show-header{
-  justify-content: space-between;
+.card-user-username {
+  width: 100%;
+  text-align: initial;
+  margin-top: 25px;
+  margin-left: 10px;
 }
 
 
