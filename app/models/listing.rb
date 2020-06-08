@@ -5,6 +5,8 @@ class Listing < ApplicationRecord
 
   belongs_to :user
   has_many :chatrooms
+  has_many :chatrooms, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :title, presence: true
   validates :street_name, presence: true
@@ -24,3 +26,4 @@ class Listing < ApplicationRecord
     [postcode, city, street_name].compact.join(', ')
   end
 end
+

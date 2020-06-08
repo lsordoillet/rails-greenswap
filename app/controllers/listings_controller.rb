@@ -39,13 +39,13 @@ class ListingsController < ApplicationController
 
   def show
     @chatroom = @listing.chatrooms.find_by(user: current_user)
+    @favorite = @listing.favorites.find_by(user: current_user)
     @markers =
        [{
           lat: @listing.latitude,
           lng: @listing.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing })
         }]
-
   end
 
   def create
