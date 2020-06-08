@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:destroy, :show]
 
   def index
-    @listings = policy_scope(Listing)
+    @listings = policy_scope(Listing).geocoded
     if params["search"].present?
       if params["search"]["plant_category"].present? && params["search"]["plant_category"].second.present?
         @listings = @listings.where(plant_category: params["search"]["plant_category"])
@@ -14,6 +14,14 @@ class ListingsController < ApplicationController
       if params["search"]["care_level_category"].present? && params["search"]["care_level_category"].second.present?
        @listings = @listings.where(care_level_category: params["search"]["care_level_category"])
       end
+    end
+    @markers = @listings.map do |listing|
+       {
+          lat: listing.latitude,
+          lng: listing.longitude,
+           infoWindow: render_to_string(partial: "info_window", locals: { listing: listing })
+        }
+
     end
   end
 
@@ -31,6 +39,13 @@ class ListingsController < ApplicationController
 
   def show
     @chatroom = @listing.chatrooms.find_by(user: current_user)
+    @favorite = @listing.favorites.find_by(user: current_user)
+    @markers =
+       [{
+          lat: @listing.latitude,
+          lng: @listing.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing })
+        }]
   end
 
   def create
@@ -63,7 +78,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :postcode, :city, :description, :active, :quantity, :price, :plant_category, :listing_type, :care_level_category, photos: [])
+    params.require(:listing).permit(:title, :postcode, :city, :description, :active, :quantity, :price, :plant_category, :listing_type, :street_name, :care_level_category, photos: [])
   end
 
   def set_listing
