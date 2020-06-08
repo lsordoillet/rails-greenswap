@@ -28,6 +28,8 @@
   </div>
    <% end %>
   </div>
+
+
    <!----------------- END OF FILTERING BOX ------------->
    <!--                      GRID/MAP                  -->
     <div class="container">
@@ -41,6 +43,8 @@
 </ul>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    
+    <!--------------  CARDS ------------->
    <div class="cards">
    <% @listings.each do |listing| %>
     <%= link_to listing_path(listing) do %>

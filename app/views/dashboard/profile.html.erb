@@ -1,5 +1,6 @@
-<div class="container">
- <div class="container">
+<div class="profile container">
+
+ <div class="profile container">
   <div class="flex-container">
    <%if current_user.avatar.attached?%>
     <%= cl_image_tag current_user.avatar.key, :width=>170, :height=>170, :radius=>"max", :gravity=>"faces", :crop=>"fill" %>
@@ -16,39 +17,39 @@
   </div>
  </div>
  </div>
- <div class="container">
+
+
+ <div class="profile container">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="my-listings-tab" data-toggle="tab" href="#my-listings" role="tab" aria-controls="my-listings" aria-selected="true">My Listings</a>
+      <a class="profile-link active" id="my-listings-tab" data-toggle="tab" href="#my-listings" role="tab" aria-controls="my-listings" aria-selected="true">My Listings</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="favorites-tab" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false">Favorites</a>
+      <a class="profile-link" id="favorites-tab" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false">Favorites</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="false">My Bookings/Messages</a>
+      <a class="profile-link" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="false">My Bookings/Messages</a>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="my-listings" role="tabpanel" aria-labelledby="my-listings-tab">
+
       <!--MY LISTINGS TAB CONTENT-->
       <% @listings.each do |listing| %>
         <%= link_to listing_path(listing) do %>
           <div class="card-horizontal">
-            <div>
               <% if !listing.photos.first.nil?%>
                 <%= cl_image_tag listing.photos.first.key, :width=>300, :height=>240, :crop=>"fill" %>
               <% else %>
                 <%= image_tag "placeholder.png", alt: "placeholder-img", height: 240, width: 300 %>
               <% end %>
-            </div>
             <div class="card-horizontal-infos">
-              <h2><%= listing.title %></h2>
-              <p><%= listing.description %> </p>
-
-              <div class="card-btns">
+            <h2><%= listing.title %></h2>
+            <p><%= listing.description %> </p>
+            <div class="card-btns">
               <%= link_to 'Edit', edit_listing_path(listing) %>
               <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }%>
-             </div>
+            </div>
             </div>
           </div>
         <% end %>
@@ -84,7 +85,7 @@
       <!--MY BOOKINGS TAB CONTENT-->
       <p>I'm requesting?</p>
       <% @my_chatrooms.each do |chatroom| %>
-        <%= chatroom.listing.title %> from <%= chatroom.listing.user.username %>  
+        <%= chatroom.listing.title %> from <%= chatroom.listing.user.username %>
         <br>
       <% end %>
       <br>
