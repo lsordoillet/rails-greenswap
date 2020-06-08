@@ -2,7 +2,6 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin-bottom: 30px;
 }
 
@@ -26,7 +25,9 @@
 }
 
 // CARD FOR HOME PAGE //
-
+#card-homepage {
+   justify-content:space-between;
+}
 #card-homepage img {
   width: 150px;
   margin: 0 auto;

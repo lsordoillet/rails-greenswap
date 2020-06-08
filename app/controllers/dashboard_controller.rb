@@ -1,13 +1,19 @@
 class DashboardController < ApplicationController
-  before_action :set_dashboard, only: [:update]
+  before_action :set_dashboard, only: [:update, :edit]
   def profile
     @listings = current_user.listings
     @my_chatrooms = current_user.chatrooms # Maybe wrong?
   end
+  
+  def edit
+  end
 
   def update
-    @profile.update(dashboard_params)
-    redirect_to profile_path, notice: "Profile was updated."
+    if @profile.update(dashboard_params)
+     redirect_to profile_path, notice: "Profile was updated."
+    else
+     render "dashboard/edit"
+    end
   end
 
   private
