@@ -1,28 +1,8 @@
-<!-- TESTING LATEST MERGE-->
 <%= link_to 'Back', listings_path %>
-
-<!-- TRYING TO MAKE THE REQUEST BUTTON "SMART"
-Because for now its always creating a new chatroom? If the current user is not the owner, and if there is no existing chatroom where user id is current user, it should show a   button. otherwise it should show a go to messages button
-<% if !@current_user == @listing.user && @listing.chatrooms.where(user_id: @current_user) %>
-<%= link_to 'BUY', new_listing_chatroom_path(@listing), class: "btn-orange" %>
-<% elsif !@current_user == @listing.user %>
-<%= link_to 'GOTO CHAT', listing_chatroom_path(@listing), class: "btn-orange" %>
-<%end%>
--->
-
-
 <% if @current_user == @listing.user  %>
  <%= link_to 'Edit', edit_listing_path(@listing), class: "btn-orange" %>
  <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-orange"%>
 <% end %>
-
-
-
-<div class="container">
-      <% @listing.photos.each do |photo| %>
-  <div class="row justify-content-center">
-      <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
-  <% end %>
 
 <div class="show-function">
   <div class="show-back">
