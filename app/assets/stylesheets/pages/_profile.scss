@@ -13,3 +13,28 @@
 .avatar-big {
   border-radius: 50%;
 }
+
+.container-profile {
+  .nav-item {
+    color:black;
+  }
+
+}
+
+.profile-link{
+  color: #00AF8A;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.nav-tabs .profile-link {
+  border: 1px solid transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px
+}
+
+.nav-tabs .profile-link.active {
+  color: #495057;
+  background-color: #FFFFFF;
+  border-color: #dee2e6 #dee2e6 #FFFFFF;
+}

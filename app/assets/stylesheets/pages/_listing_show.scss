@@ -1,11 +1,32 @@
 
-.show-card h5 {
+
+.show-function {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.show-back{
+  margin-left: 10px;
+}
+
+.show-price h5 {
   color: #49b2b4;
   font-size: 16px;
 }
 
-.show-card h4 {
+.show-zip-code h5 {
+  color: #49b2b4;
+  font-size: 16px;
+}
+
+.show-zip-code h4 {
+  color: #49b2b4;
+  font-size: 16px;
+}
+
+.show-price h4 {
   font-size: 32px;
+  color: #49b2b4;
 }
 
 .show-price.show-zip-code p {
@@ -19,24 +40,13 @@
   margin-right: 30px;
 }
 
-.user-avatar-usern {
-  justify-content: space-between;
-  display:  flex;
-}
-
-.show-username{
-  width: 100%;
-  text-align: initial;
-  margin-top: 25px;
-  margin-left: 10px;
-}
 
 .show-cards{
   margin-left: 30px;
 }
 
 
-.show-user-des{
-    margin: 20px;
-    text-align: left;
+.show-header{
+  justify-content: space-between;
 }
+

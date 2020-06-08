@@ -6,9 +6,9 @@
     <!-- SEARCH BAR --->
     <div id="content">
 
-      <h1 class="text-left" style="padding-left:40px; padding-bottom:10px;">Local marketplace for plants</h1>
+      <h1 class="home-title">Local marketplace<br>for <span class="home-title-decorator">plants</span></h1>
       <%= form_tag listings_path, method: :get do %>
-      <div class="search-form-control form-group input-group">
+      <div class="home-form search-form-control form-group input-group">
         <%= text_field_tag :query,
         params[:query],
         class: "form-control search-form",
@@ -30,27 +30,27 @@
   <!-- HOW IT WORK SECTION --->
   <div class="container" style="margin-bottom: 100px;">
 
-    <h1 class="text-center" style="margin-top: 30px;">
-    How it works</h1>
-    <h3 class="text-center" style="margin-bottom: 30px;">
-    Become a Greenswap member</h3>
+    <h2 class="home-title text-center">
+    How it works</h2>
+    <span class="home-description">
+    Become a GreenSwap member</span>
 
-    <div class="cards" id="card-homepage">
-      <div class="card">
+    <div class="cards">
+      <div class="card card-homepage">
         <%= image_tag ("picture-card-home.gif") %>
         <h4>Browse all plants</h4>
         <p>Get wonderful plants from our community</p>
         <%= link_to "Browse all plants", listings_path,class: "btn-orange-card"%>
       </div>
 
-      <div class="card" id="card-homepage">
+      <div class="card card-homepage">
         <%= image_tag ("picture-card-home.gif") %>
         <h4>Swap & Review</h4>
         <p>Swap your plants with other plants lover</p>
         <%= link_to "Start Swapping", listings_path, class: "btn-orange-card"%>
       </div>
 
-      <div class="card" id="card-homepage">
+      <div class="card card-homepage">
         <%= image_tag ("picture-card-home.gif") %>
         <h4>Join the community</h4>
         <p>Become a plant master with the knowledge of our community</p>
