@@ -7,6 +7,7 @@ class Listing < ApplicationRecord
   has_many :chatrooms
 
   validates :title, presence: true
+  validates :street_name, presence: true
   validates :postcode, presence: true
   validates :city, presence: true
   validates :description, presence: true
@@ -20,6 +21,6 @@ class Listing < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
   def address
-    [postcode, city].compact.join(', ')
+    [postcode, city, street_name].compact.join(', ')
   end
 end

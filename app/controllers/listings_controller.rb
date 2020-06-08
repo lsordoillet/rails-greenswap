@@ -39,6 +39,13 @@ class ListingsController < ApplicationController
 
   def show
     @chatroom = @listing.chatrooms.find_by(user: current_user)
+    @markers =
+       [{
+          lat: @listing.latitude,
+          lng: @listing.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing })
+        }]
+
   end
 
   def create
@@ -71,7 +78,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :postcode, :city, :description, :active, :quantity, :price, :plant_category, :listing_type, :care_level_category, photos: [])
+    params.require(:listing).permit(:title, :postcode, :city, :description, :active, :quantity, :price, :plant_category, :listing_type, :street_name, :care_level_category, photos: [])
   end
 
   def set_listing
