@@ -38,7 +38,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-
+    @chatroom = @listing.chatrooms.find_by(user: current_user)
   end
 
   def create

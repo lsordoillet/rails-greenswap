@@ -1,0 +1,32 @@
+Listing id: <%=@chatroom.listing.id%>
+Chatroom id: <%=@chatroom.id%>
+CURRENT USER: <%=current_user.username%>
+
+<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <% @chatroom.messages.each do |message| %>
+    <div class="message-container" id="message-<%= message.id %>">
+      <i class="author">
+        <span><%= message.user.username %></span>
+        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      </i>
+      <p><%= message.content %></p>
+    </div>
+  <% end %>
+</div>
+
+<!-- if code above causes issues, maybe just this?
+<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <% @chatroom.messages.each do |message| %>
+    <%= render "messages/message", message: message %>
+  <% end %>
+</div>
+-->
+
+<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+  <%if @chatroom.listing.user != current_user%>  <!-- we need this if to display correct chat partner -->
+    <%= f.input :content, label: false, placeholder: "Message #{@chatroom.listing.user.username}" %>
+  <%else%>
+    <%= f.input :content, label: false, placeholder: "Message #{@chatroom.user.username}" %>
+    <%end%>
+  <%= f.submit "Send", class: "btn btn-primary" %>
+<% end %>

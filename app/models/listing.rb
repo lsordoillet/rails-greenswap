@@ -4,6 +4,8 @@ class Listing < ApplicationRecord
   CARE_LEVEL_CATEGORY = ["Easy", "Medium", "Difficult"]
 
   belongs_to :user
+  has_many :chatrooms
+
   validates :title, presence: true
   validates :postcode, presence: true
   validates :city, presence: true
