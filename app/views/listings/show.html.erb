@@ -9,11 +9,7 @@ Because for now its always creating a new chatroom? If the current user is not t
 <%= link_to 'GOTO CHAT', listing_chatroom_path(@listing), class: "btn-orange" %>
 <%end%>
 -->
-<%if @chatroom && @current_user != @listing.user%>
-<%= link_to 'Go to request', chatroom_path(@chatroom), class: "btn-orange" %>
-<% elsif @current_user != @listing.user %>
-<%= link_to 'REQUEST', listing_chatrooms_path(@listing), method: :post, class: "btn-orange" %>
-<% end %>
+
 
 <% if @current_user == @listing.user  %>
  <%= link_to 'Edit', edit_listing_path(@listing), class: "btn-orange" %>
@@ -60,8 +56,16 @@ Because for now its always creating a new chatroom? If the current user is not t
               </div>
               <div class="show-user-des">
             <p><%= @listing.user.description %></p>
+                            <%= console %>
+
               </div>
-              <%= link_to "Contact #{@listing.user.username}", root_path, class: "btn-orange" %>
+              <%if @current_user == @listing.user %> <!-- If it's your listing. TODO: Edit Listing button twice now? --> 
+                <%= link_to 'Edit Listing', edit_listing_path(@listing), class: "btn-orange" %> 
+              <%elsif @current_user != @listing.user %> <!-- If it's not your listing and you havent requested it yet -->
+                <%= link_to 'Request Listing', listing_chatrooms_path(@listing), method: :post, class: "btn-orange" %>
+              <%elsif @chatroom && @current_user != @listing.user && chatroom.user == @current_user %> <!-- If the listing doesnt belong to you and you already requested the listing -->
+                <%= link_to 'Go to request', chatroom_path(@chatroom), class: "btn-orange" %>
+              <% end %>
         </div>
     </div>
   <div class="cards" style="margin-top: 30px">
