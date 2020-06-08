@@ -1,15 +1,61 @@
- <div class="form">
- <%= simple_form_for(@listing) do |f| %>
-      <%= f.input :title %>
-      <%= f.input :postcode %>
-      <%= f.input :city %>
-      <%= f.input :description %>
-      <%= f.input :quantity %>
-      <%= f.input :price %>
-      <%= f.input :plant_category, collection: Listing::PLANT_CATEGORY %>
-      <%= f.input :listing_type, collection: Listing::LISTING_TYPE %>
-      <%= f.input :care_level_category, collection: Listing::CARE_LEVEL_CATEGORY %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit "Add listing", class: "btn-orange" %>
-    <% end %>
-</div>
+<%= link_to 'back to previous page', listings_path %>
+ <div class="container">
+  <div class="row"> 
+    <div class="col-12 col-sm-6 sol-sm-offset-3">
+     <div class="container"> 
+      <div class="row">
+       <div class="col-12">
+        <h2> Post new listing </h2>
+      </div>
+      </div>
+
+      <%= simple_form_for(@listing) do |f| %>
+        <div class="container">
+        <div class="row">
+          <div class="col-12">
+          <%= f.input :title, placeholder: "What's the title of your new listing?" %>
+        </div>
+          </div>
+          <div class="row">
+          <div class="col-6">
+            <%= f.input :postcode %>
+          </div>
+          <div class="col-6">
+            <%= f.input :city %>
+          </div>
+          </div> 
+          <div class="row">
+          <div class="col-12">
+          <%= f.input :description, placeholder:"My offering listing has a size of ..." %>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+            <%= f.input :price %>
+            </div>
+            <div class="col-6">
+            <%= f.input :quantity %>
+            </div>
+          </div>
+          <div class="form-group">
+          <div class="custom-check-wrapper">
+            <%= f.input :plant_category, as: :radio_buttons , wrapper_html: { class: 'custom-check' },  collection: Listing::PLANT_CATEGORY %>
+          </div>
+          <div class="custom-check-wrapper">
+            <%= f.input :listing_type, as: :radio_buttons , wrapper_html: { class: 'custom-check' }, collection: Listing::LISTING_TYPE %>
+          </div>
+          <div class="custom-check-wrapper">
+            <%= f.input :care_level_category, wrapper_html: { class: 'custom-check' }, as: :radio_buttons, collection: Listing::CARE_LEVEL_CATEGORY %>
+          </div>
+          </div>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= f.submit "Upload", class: "btn-orange-form", :style=>"width: 100%;" %>
+          </div>
+      <% end %>
+     </div> 
+    </div> 
+  </div> 
+ </div> 
+
+
+
