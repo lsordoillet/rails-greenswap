@@ -4,7 +4,12 @@ class Listing < ApplicationRecord
   CARE_LEVEL_CATEGORY = ["Easy", "Medium", "Difficult"]
 
   belongs_to :user
+  has_many :chatrooms
+  has_many :chatrooms, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
   validates :title, presence: true
+  validates :street_name, presence: true
   validates :postcode, presence: true
   validates :city, presence: true
   validates :description, presence: true
@@ -14,6 +19,11 @@ class Listing < ApplicationRecord
   validates :care_level_category, presence: true, inclusion: { in: CARE_LEVEL_CATEGORY }
 
   has_many_attached :photos
-  has_many :chatrooms, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+
+  geocoded_by :address
+  after_validation :geocode
+  def address
+    [postcode, city, street_name].compact.join(', ')
+  end
 end
+
