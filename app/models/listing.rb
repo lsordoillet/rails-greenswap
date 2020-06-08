@@ -14,6 +14,6 @@ class Listing < ApplicationRecord
   validates :care_level_category, presence: true, inclusion: { in: CARE_LEVEL_CATEGORY }
 
   has_many_attached :photos
-  has_many :chatrooms
-  has_many :favorites
+  has_many :chatrooms, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end
