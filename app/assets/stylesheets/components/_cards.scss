@@ -18,48 +18,21 @@
 }
 
 // CARD FOR HOME PAGE //
-#card-homepage {
+.card-homepage {
    justify-content:space-between;
-}
-#card-homepage img {
-  width: 150px;
-  text-align:center;
-  margin: 12px auto;
-}
+   margin:30px;
 
-#card-homepage p {
-  opacity: .5;
-}
-
-// CARD FOR SHOW //
-
-.card-user {
-  .card-user-avatar img {
-    border-radius:10px;
+  img {
+    width: 150px;
+    text-align:center;
+    margin: 12px auto;
+  }
+  .card-homepage p {
+    opacity: .5;
   }
 }
 
 
-.show-header{
-  justify-content: space-between;
-}
-
-
-
-.price-zipcode{
-    display: flex;
-    justify-content: space-between;
-    width: 22%;
-}
-
-.show-function {
-  display: flex;
-  justify-content: space-between;
-  margin-right: 10px;
-}
-.show-back{
-  margin-left: 10px;
-}
 
 // CARD FOR PROFILE //
 
@@ -70,13 +43,11 @@
 //   width: 50%;
 // }
 
-.profile-title-des{
-  width: 90%;
-}
+
 // CARD LISTING FOR INDEX //
 
 .card-index {
-  margin: 12px;
+  margin: 11px;
 
   .card-index-img {
     margin:0;
@@ -126,3 +97,42 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 
+
+// CARD FOR SHOW //
+
+.card-user {
+  margin: 12px;
+
+  .card-user-avatar img {
+    border-radius:10px;
+    display: block;
+    height:100px;
+    width:100px;
+  }
+
+ .card-user-description{
+  width: 90%;
+}
+}
+
+
+.show-header{
+  justify-content: space-between;
+}
+
+
+
+.price-zipcode{
+    display: flex;
+    justify-content: space-between;
+    width: 22%;
+}
+
+.show-function {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.show-back{
+  margin-left: 10px;
+}
