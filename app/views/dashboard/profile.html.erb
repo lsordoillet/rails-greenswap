@@ -25,7 +25,7 @@
       <a class="nav-link" id="favorites-tab" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false">Favorites</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="false">My Bookings</a>
+      <a class="nav-link" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="false">My Bookings/Messages</a>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
@@ -62,7 +62,20 @@
     </div>
     <div class="tab-pane fade" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
       <!--MY BOOKINGS TAB CONTENT-->
-      <p>My Bookings...</p>
+      <p>I'm requesting?</p>
+      <% @my_chatrooms.each do |chatroom| %>
+        <%= chatroom.listing.title %> from <%= chatroom.listing.user.username %>  
+        <br>
+      <% end %>
+      <br>
+      <p>I'm offering</p>
+      <% @listings.each do |listing| %>
+        <% listing.chatrooms.each do |chatroom| %>
+          <%= chatroom.user.username %> is interested in <%= chatroom.listing.title %>
+        <br>
+        <% end %>
+        <% end %>
+
     </div>
   </div>
  </div>
