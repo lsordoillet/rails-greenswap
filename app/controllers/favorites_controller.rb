@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
     @favorite.listing = Listing.find(params[:listing_id])
     @favorite.save
     authorize @favorite
-    redirect_to profile_path
+    redirect_to listing_path(@favorite.listing)
   end
 
   def show
@@ -20,7 +20,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    @listing = @favorite.listing
     @favorite.destroy
-    redirect_to profile_path(current_user), notice: "Favorite was removed!"
+    redirect_to listing_path(@listing), notice: "Favorite was removed!"
   end
 end
