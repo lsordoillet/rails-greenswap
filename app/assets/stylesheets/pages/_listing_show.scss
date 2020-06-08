@@ -1,12 +1,22 @@
 
-
+#map {
+  width: 100%;
+  height: 300px;
+  margin-bottom:50px;
+}
 .show-function {
   display: flex;
   justify-content: space-between;
-  margin-right: 10px;
+
 }
 .show-back{
-  margin-left: 10px;
+  margin-bottom: 20px;
+
+}
+
+.show-title {
+  margin-right: 40px;
+
 }
 
 .show-price h5 {

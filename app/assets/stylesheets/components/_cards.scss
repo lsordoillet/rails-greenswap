@@ -109,6 +109,8 @@ a:-webkit-any-link {
      display: block;
      height:100px;
      width:100px;
+    margin-left: 15px;
+
    }
  }
 
@@ -118,10 +120,11 @@ a:-webkit-any-link {
  }
 
 .card-user-username {
-  width: 100%;
   text-align: initial;
-  margin-top: 25px;
-  margin-left: 10px;
+  h6 {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
 }
 
 
