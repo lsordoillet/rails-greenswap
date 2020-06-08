@@ -1,3 +1,16 @@
+.container-show {
+  width:65%;
+}
+
+
+.show-function {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.show-back{
+  margin-left: 10px;
+}
 
 .show-price h5 {
   color: #49b2b4;
@@ -8,7 +21,6 @@
   color: #49b2b4;
   font-size: 16px;
 }
-
 
 .show-zip-code h4 {
   color: #49b2b4;
