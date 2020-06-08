@@ -22,6 +22,6 @@ class FavoritesController < ApplicationController
   def destroy
     @listing = @favorite.listing
     @favorite.destroy
-    redirect_to listing_path(@listing), notice: "Favorite was removed!"
+    redirect_to request.referrer, notice: "Favorite was removed!"
   end
 end
