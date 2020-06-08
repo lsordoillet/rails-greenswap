@@ -1,11 +1,61 @@
 .form {
-  text-align: left;
-  display: block;
-  width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+background: white;
+padding: 20px;
+border-radius: 5px;
+h2 {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 50x;
+  }
+.btn-orange {
+  width: 100%;
+}
 }
 
-.form h1 {
-  text-align:center
+.btn-orange-form {
+  color:#FAFAFA !important;
+  background-color:$orange!important;
+  padding: 8px 12px!important;
+  font-weight: bolds!important; 
+  border-style: none!important;
+  border-color: none!important;
+  width: 100%!important;
+}
+
+
+
+legend {
+  display: inline-block!important;
+}
+.category-choices {
+  display: flex !important;
+}
+
+.custom-check-wrapper fieldset > * {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.custom-check {  
+  input {
+    display: none;
+  }
+  .form-check {
+    padding-left: 0;
+  }
+  label {
+    color:#FAFAFA!important;
+    background-color:$orange;
+    padding: 8px 12px;
+    font-weight: bolds;
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    &.active {
+      background-color: $greenswap;
+      color: white;
+      opacity: 1;}
+    }
 }
