@@ -9,14 +9,23 @@
     <% end %>
   </div>
 </div>
-  <div class="show-cards">
-    <div class="show-pic-user" style="margin-top: 30px">
-            <% @listing.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
-            <% end %>
-        <div class="card" id=show-user style="margin-right: 5px">
-          <div class="user-avatar-usern">
-            <div class="show-avatar">
+
+
+  <div class="container-show">
+
+  <!--------------  PICTURES ------------->
+    <div class="pictures">
+      <% @listing.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
+      <% end %>
+    </div>
+
+
+
+  <!-------------- USER CARD ------------->
+    <div class="card card-user" style="margin-right: 5px">
+          <div class="card-user">
+            <div class="card-user-avatar">
             <% if @listing.user.avatar.attached? %>
                <%= cl_image_tag @listing.user.avatar.key, :width=>100, :height=>100, :gravity=>"faces", :crop=>"fill" %>
              <% else %>
@@ -31,10 +40,15 @@
             <p><%= @listing.user.description %></p>
               </div>
               <%= link_to "Contact #{@listing.user.username}", root_path, class: "btn-orange" %>
-        </div>
-    </div>
-  <div class="cards" style="margin-top: 30px">
-        <div class="card w-75" id="show-card" style="margin-right: 50px; background-color: white;">
+     </div>
+
+<!-------------- LISTINGS DETAILS ------------->
+
+  </div>
+
+
+  <div>
+        <div class="w-75" style="margin-right: 50px; background-color: white;">
           <div class="show-header">
         <h4><%= @listing.title %></h4>
         <div class="price-zipcode">

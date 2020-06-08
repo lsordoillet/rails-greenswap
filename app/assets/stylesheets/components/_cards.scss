@@ -33,14 +33,17 @@
 
 // CARD FOR SHOW //
 
+.card-user {
+  .card-user-avatar img {
+    border-radius:10px;
+  }
+}
+
 
 .show-header{
   justify-content: space-between;
 }
 
-#show-card.card{
-  text-align: left;
-}
 
 
 .price-zipcode{
@@ -116,57 +119,6 @@
       margin-right: 8px;
     }
   }
-}
-
-
-
-.card-listing {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 20px;
-  margin: 5px;
-  width: 90%;
-  padding: 10px;
-  text-align: center;
-  padding-top: 0;
-  flex: 0 1 24%;
-}
-
-.card-listing > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 3px;
-}
-
-.card-listing h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  padding: 10px;
-}
-
-.card-listing p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-
-.card-listing .card-listing-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-listing-infos .card-listing-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
 }
 
 
