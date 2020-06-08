@@ -2,7 +2,13 @@
 <% if @current_user == @listing.user  %>
  <%= link_to 'Edit', edit_listing_path(@listing), class: "btn-orange" %>
  <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-orange"%>
+
+<% elsif @favorite && @current_user != @listing.user &&  @favorite.user == @current_user%> <!--If you are not the seller and you have already favorited it-->
+  <%= link_to "Remove favorite", favorite_path(@favorite), method: :delete, class: "btn-orange", data: { confirm: "Are you sure?" }%>
+<% elsif @current_user != @listing.user %> <!--If you are not the seller and you have not favorited it yet -->
+  <%= link_to 'Add to favorites', listing_favorites_path(@listing), method: :post, class: "btn-orange" %>
 <% end %>
+
 
 <div class="show-function">
   <div class="show-back">
@@ -40,10 +46,10 @@
               </div>
               <%if @current_user == @listing.user %> <!-- If it's your listing. TODO: Edit Listing button twice now? --> 
                 <%= link_to 'Edit Listing', edit_listing_path(@listing), class: "btn-orange" %> 
+              <%elsif @chatroom && @current_user != @listing.user && @chatroom.user == @current_user %> <!-- If the listing doesnt belong to you and you already requested the listing -->
+                <%= link_to 'Go to request', chatroom_path(@chatroom), class: "btn-orange" %>
               <%elsif @current_user != @listing.user %> <!-- If it's not your listing and you havent requested it yet -->
                 <%= link_to 'Request Listing', listing_chatrooms_path(@listing), method: :post, class: "btn-orange" %>
-              <%elsif @chatroom && @current_user != @listing.user && chatroom.user == @current_user %> <!-- If the listing doesnt belong to you and you already requested the listing -->
-                <%= link_to 'Go to request', chatroom_path(@chatroom), class: "btn-orange" %>
               <% end %>
         </div>
     </div>

@@ -15,4 +15,5 @@ class Listing < ApplicationRecord
 
   has_many_attached :photos
   has_many :chatrooms
+  has_many :favorites
 end

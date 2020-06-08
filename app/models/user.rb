@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :chatrooms
   has_many :messages#, through: :chatrooms
-
+  has_many :favorites
   has_one_attached :avatar
 
   
