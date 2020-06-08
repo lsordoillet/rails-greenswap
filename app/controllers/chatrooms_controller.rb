@@ -12,7 +12,7 @@ class ChatroomsController < ApplicationController
     redirect_to chatroom_path(@chatroom)
     # ?redirect_to @chatroom
   end
-  
+
   def show
     @message = Message.new
     # also created a message policy.. required? TODO: If not required, delete message policy
