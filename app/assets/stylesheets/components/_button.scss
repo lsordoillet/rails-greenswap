@@ -9,14 +9,15 @@
 // NAVBAR BUTTON WITH BORDER RADIUS //
 .nav-btn {
   border-radius: 50px;
-  font-weight: bold;
+  font-weight: medium;
   color: white;
 }
 
 .nav-btn:hover {
-  background-color:$orange;
+  background-color:#FAB000;
   transition: opacity 0.3s ease;
   text-decoration:none;
+  color:white;
 }
 
 // ALL BUTTONS //
@@ -42,11 +43,9 @@
 
 // CARD BUTTONS //
 .btn-orange-card {
-  padding-right: 12px;
   color:#FAFAFA !important;
-  padding-left: 12px;
   background-color:$orange;
-  padding: 8px 20px;
+  padding: 16px;
   font-weight: bold;
   width: 100%;
   display: block;

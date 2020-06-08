@@ -10,18 +10,11 @@
 .card {
   background-color:$white;
   width: 302px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0px 5px 27px -11px rgba(0,0,0,0.35);
-  -moz-box-shadow: 0px 5px 27px -11px rgba(0,0,0,0.35);
+  border-radius: 12px;
   box-shadow: 0px 5px 27px -11px rgba(0,0,0,0.35);
   text-align: center;
-  padding: 5px;
   border: 1px solid rgb(230,230,230);
-}
-
-.card img {
-  text-align:center;
-  margin:0 auto;
+  overflow: hidden;
 }
 
 // CARD FOR HOME PAGE //
@@ -30,8 +23,8 @@
 }
 #card-homepage img {
   width: 150px;
-  margin: 0 auto;
   text-align:center;
+  margin: 12px auto;
 }
 
 #card-homepage p {
@@ -78,6 +71,54 @@
   width: 90%;
 }
 // CARD LISTING FOR INDEX //
+
+.card-index {
+  margin: 12px;
+
+  .card-index-img {
+    margin:0;
+    width:100%;
+    object-fit:cover;
+    height:170px;
+  }
+  .card-index-details {
+    text-align: left;
+    padding: 16px;
+
+    &-title {
+     margin-bottom: 0px;
+     font-size: 21px;
+     font-weight: 500;
+     color:black;
+    }
+
+    &-description {
+     margin:0;
+     color:#CDCACA;
+
+
+    }
+  }
+  .card-index-infos {
+    &-item {
+      margin-bottom: 0;
+      border-top: 1px solid lightgray;
+      color: black;
+      padding: 8px 16px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    &-category {
+      font-size: 12px;
+      font-weight: 500;
+      color: gray;
+      margin-right: 8px;
+    }
+  }
+}
+
+
 
 .card-listing {
   overflow: hidden;
@@ -128,27 +169,6 @@
   width: 40px;
 }
 
-#index-card {
-  width:290px;
-  height:290px;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
-
-}
-
-#index-card p {
- margin-bottom:0;
- text-align:left;
- margin-left: 15px;
- margin-right: 15px;
-
-}
-
-#index-card img {
-  width: 275px;
-
-}
 
 a:-webkit-any-link {
     text-decoration: none;
