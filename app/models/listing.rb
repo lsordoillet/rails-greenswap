@@ -14,4 +14,10 @@ class Listing < ApplicationRecord
   validates :care_level_category, presence: true, inclusion: { in: CARE_LEVEL_CATEGORY }
 
   has_many_attached :photos
+
+  geocoded_by :address
+  after_validation :geocode
+  def address
+    [postcode, city].compact.join(', ')
+  end
 end
