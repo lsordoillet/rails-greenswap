@@ -1,8 +1,9 @@
-<div class="card">
+
 <%= link_to listing_path(listing) do %>
 <%= cl_image_tag listing.photos.first.key, height: 100, width: 100, crop: :fill %>
-<h2><%= listing.title %></h2>
-<span><%= listing.listing_type %></span>
+<span class="card-index-details-title"><%= listing.title %></span>
+  <p class="card-index-details-description"> <b> <%= listing.plant_category %>  -   <%= listing.  listing_type %></b></p>
+  <p class="card-index-infos-item"><span class="card-index-infos-category">Care Level:</span><%= listing.care_level_category %></p>
 <% end %>
-</div>
+
 
