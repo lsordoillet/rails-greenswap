@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:destroy, :show]
 
   def index
-    @listings = policy_scope(Listing)
+    @listings = policy_scope(Listing).geocoded
 
     if params["search"].present?
       if params["search"]["plant_category"].present? && params["search"]["plant_category"].second.present?
