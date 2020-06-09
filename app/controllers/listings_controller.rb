@@ -38,7 +38,8 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @chatroom = @listing.chatrooms.find_by(user: current_user)
+    @chatroom = @listing.chatrooms.find_by(user: current_user) || Chatroom.new
+    
     @favorite = @listing.favorites.find_by(user: current_user)
     @markers =
        [{

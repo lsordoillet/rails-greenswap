@@ -1,19 +1,28 @@
 class ChatroomsController < ApplicationController
-  before_action :set_chatroom, only: :show
+  before_action :set_chatroom, only: [ :show, :update ]
 
   def create
     @chatroom = Chatroom.new
     @chatroom.user = current_user
     @chatroom.listing = Listing.find(params[:listing_id])
-    @chatroom.status = "pending"
+    @chatroom.status = params[:status]
     @chatroom.save
     authorize @chatroom
-    # render :show doesnt work because it doesnt actually call the method?
     redirect_to chatroom_path(@chatroom)
-    # ?redirect_to @chatroom
   end
 
-  def show
+  def change_status
+    @message.status = "cancelled"
+  end
+
+  def update
+    @chatroom.status = params[:status]
+    @chatroom.save
+    authorize @chatroom
+    redirect_to chatroom_path(@chatroom)
+  end
+
+ def show
     @message = Message.new
     # also created a message policy.. required? TODO: If not required, delete message policy
     # without the message form, it "works"
