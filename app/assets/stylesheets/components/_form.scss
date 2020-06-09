@@ -49,6 +49,8 @@ legend {
   }
   .form-check {
     padding-left: 0;
+    display: inline-block;
+    justify-content:center;
   }
   label {
     color:#FAFAFA!important;
@@ -65,4 +67,8 @@ legend {
       color: white;
       opacity: 1;}
     }
+}
+
+.form-post {
+  text-align:center;
 }

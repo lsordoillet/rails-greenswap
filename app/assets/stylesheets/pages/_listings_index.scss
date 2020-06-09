@@ -38,9 +38,16 @@ p {
   justify-content: flex-end
 }
 
-.nav-pills {
-  border-radius:12px;
+#pills-home-tab {
+  border-top-left-radius:12px;
+  border-bottom-left-radius: 12px;
 }
+
+#pills-profile-tab {
+  border-top-right-radius:12px;
+  border-bottom-right-radius: 12px;
+}
+
 .nav-pills .nav-link.active {
   background-color:$orange;
 }
