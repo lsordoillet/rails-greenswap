@@ -39,6 +39,20 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initCustomCheck();
-  initMapbox();
+  if (document.querySelector('.show-map') != undefined){
+    initMapbox();
+  };
   initChatroomCable();
 });
+
+if (document.querySelector('.event-dispatcher') != undefined) {
+  document.querySelector('.event-dispatcher').addEventListener('click', () => {
+    document.dispatchEvent(new Event('initMap'));
+  });
+
+  document.addEventListener('initMap', () => {
+    setTimeout(function(){
+      initMapbox();
+    }, 500);
+  })
+}

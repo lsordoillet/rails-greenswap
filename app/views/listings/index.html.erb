@@ -41,8 +41,8 @@
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
        <li class="nav-map">
         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Grid</a>
-       </li>
-       <li class="nav-map">
+      </li>
+      <li class="nav-item event-dispatcher">
         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Map</a>
        </li>
       </ul>
@@ -75,7 +75,7 @@
 
     <!--------------  MAP ------------->
      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      <div id="map"  style="width: 100%; height: 800px;"
+      <div id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
