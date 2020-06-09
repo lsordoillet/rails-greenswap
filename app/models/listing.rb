@@ -22,8 +22,8 @@ class Listing < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+
   def address
     [postcode, city, street_name].compact.join(', ')
   end
 end
-
