@@ -1,35 +1,16 @@
 <!-- <h1><%= content_for(:title, "LOCAL GOODIES") %></h1> -->
-<div class="flex-container">
+<div class="flex-container" data-controller="filter">
 <!----------------- FILTERING BOX ------------->
-  <div class="filter">
-  <!-- <h3> Filter: </h3> -->
-  <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
-  <div class="category">
-   <p id="category-name"> Plant Category </p>
-   <div class="advancedsearch">
-    <%= f.collection_check_boxes :plant_category, Listing::PLANT_CATEGORY , :to_s, :to_s %>
-   </div>
-  </div>
-  <div class="category">
-   <p id="category-name"> Listing Type </p>
-   <div class="advancedsearch">
-    <%= f.collection_check_boxes :listing_type, Listing::LISTING_TYPE , :to_s, :to_s %>
-   </div>
-  </div>
-  <div class="category">
-    <p id="category-name"> Care Level </p>
-   <div class="advancedsearch">
-    <%= f.collection_check_boxes :care_level_category, Listing::CARE_LEVEL_CATEGORY , :to_s, :to_s %>
-   </div>
-  </div>
-  <div class="flex-container">
-   <%= f.submit "Apply", class: "btn-orange-filter1", style: "margin-left: 30px;" %>
-   <%= link_to 'Reset', listings_path, class: "btn-orange-filter2" %>
-  </div>
-   <% end %>
-  </div>
-
-
+      <div class="filter" data-target="filter.formContainer">
+        <h3>Filter</h3>
+        <hr>
+        <%= simple_form_for :search, url: listings_path, method: :get, remote: true do |f| %>
+          <%= f.input :plant_category, label: "Plant Category",  collection: Listing::PLANT_CATEGORY, as: :check_boxes, input_html: { 'data-action' => 'change->filter#refresh' } %>
+          <%= f.input :listing_type, label: "Listing Type", collection: Listing::LISTING_TYPE, as: :check_boxes, input_html: { 'data-action' => 'change->filter#refresh' } %>
+          <%= f.input :care_level_category, label: "Care Level", collection: Listing::CARE_LEVEL_CATEGORY, as: :check_boxes, input_html: { 'data-action' => 'change->filter#refresh' } %>
+          <%= link_to "Reset", listings_path,class: "btn-orange-form", :style=>"margin-left: 10px;" %>
+        <% end %>
+    </div>
    <!----------------- END OF FILTERING BOX ------------->
    <!--                      GRID/MAP                  -->
     <div class="container">
@@ -45,27 +26,7 @@
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
     
     <!--------------  CARDS ------------->
-   <div class="cards">
-   <% @listings.each do |listing| %>
-    <%= link_to listing_path(listing) do %>
-      <div class="card card-index" id="index-card">
-        <% if !listing.photos.first.nil?%>
-          <%= cl_image_tag listing.photos.first.key, :gravity=>"faces", :crop=>"fill", class:"card-index-img" %>
-        <% else %>
-          <%= image_tag "placeholder.png", alt: "placeholder-img", class:"card-index-img" %>
-        <% end %>
-        <div class="card-index-details">
-          <span class="card-index-details-title"><%= listing.title %></span>
-          <p class="card-index-details-description"> <b> <%= listing.plant_category %>  -   <%= listing.listing_type %></b></p>
-        </div>
-        <div class="card-index-infos">
-          <p class="card-index-infos-item"><span class="card-index-infos-category">Care Level:</span><%= listing.care_level_category %></p>
-          <p class="card-index-infos-item"><span class="card-index-infos-category">Location:</span><%= listing.postcode %> - <%= listing.city %></p>
-        </div>
-      </div>
-     <% end %>
-    <% end %>
-  </div></div>
+   <div id>
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
  <div id="map"
@@ -79,6 +40,9 @@
   </div>
 
     <!--------------  CARDS ------------->
+    <div id="listings" data-target="listings">
+      <%= render 'index', listings: @listings %>
+    </div>
 
     <!--------------  END OF CARDS ------------->
 </div>
