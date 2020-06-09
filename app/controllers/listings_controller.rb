@@ -47,6 +47,7 @@ class ListingsController < ApplicationController
           lng: @listing.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing })
         }]
+
   end
 
   def create
