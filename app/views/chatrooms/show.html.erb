@@ -47,7 +47,6 @@ STATUS: <%=@chatroom.status%>
   <% end %>
 </div>
 -->
-<% console %>
 <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
   <%if @chatroom.listing.user != current_user%>  <!-- we need this if to display correct chat partner -->
     <%= f.input :content, label: false, placeholder: "Message #{@chatroom.listing.user.username}" %>
