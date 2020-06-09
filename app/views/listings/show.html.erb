@@ -1,101 +1,105 @@
 <!--------------  BUTTONS ------------->
 <div class="container show-function">
   <div class="show-back">
-    <%= link_to 'Go to all listings', listings_path %>
-  </div>
-  <div class="show-edit-delete">
-    <% if @current_user == @listing.user  %>
-      <%= link_to 'Edit', edit_listing_path(@listing) %>
-      <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% elsif @favorite && @current_user != @listing.user &&  @favorite.user == @current_user%> <!--If you are not the seller and you have already favorited it-->
-      <%= link_to "Remove favorite", favorite_path(@favorite), method: :delete, class: "btn-orange", data: { confirm: "Are you sure?" }%>
-    <% elsif 
-    
-    @current_user != @listing.user %> <!--If you are not the seller and you have not favorited it yet -->
-      <%= link_to 'Add to favorites', listing_favorites_path(@listing), method: :post, class: "btn-orange" %>
-    <% end %>
+    <%= link_to '< Go to all listings', listings_path %>
   </div>
 </div>
 
 
 <div class="container">
   <div class="row">
- <div class="col-8">
-  <!--------------  PICTURES ------------->
-  <div class="grid-settings <%= grid_builder(@listing.photos) %>">
-    <% @listing.photos.each_with_index do |photo, index| %>
-    <%= cl_image_tag photo.key, crop: :fill, class:"image-grid-item image-grid-item-#{index}"  %>
-    <% end %>
-  </div>
+    <div class="col-8">
+      <!--------------  PICTURES ------------->
+      <div class="grid-settings <%= grid_builder(@listing.photos) %>">
+        <% @listing.photos.each_with_index do |photo, index| %>
+       <%= cl_image_tag photo.key, crop: :fill, class:"image-grid-item image-grid-item-#{index}"  %>
+       <% end %>
+      </div>
 
 
-<!-------------- LISTINGS DETAILS ------------->
-  <div class="show-card" style="margin-right: 50px; background-color: white;">
-    <div class="show-header">
-      <h4><%= @listing.title %></h4>
-      <div class="price-zipcode">
-      <div class="show-price">
-      <h5>Type</h5>
-      <p>
-      <% if@listing.listing_type == "Sell" %>
-      <%= @listing.price %>€
-      <% else %>
-      <%= @listing.listing_type %>
-      <% end %>
-      </p>
+      <!-------------- LISTINGS DETAILS ------------->
+      <div class="show-card" style="margin-right: 50px; background-color: white;">
+        <div class="show-header">
+          <div class="row">
+            <div class="show-title">
+             <h4><%= @listing.title %></h4>
+            </div>
+            <div class="show-edit-delete">
+            <% if @current_user == @listing.user  %>
+            <%= link_to 'Edit', edit_listing_path(@listing) %>
+            <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } %>
+             <% elsif @favorite && @current_user != @listing.user &&  @favorite.user == @current_user%> <!--If you are not the seller and you have already favorited it-->
+             <%= link_to "Remove favorite", favorite_path(@favorite), method: :delete, class: "btn-orange", data: { confirm: "Are you sure?" }%>
+             <% elsif @current_user != @listing.user %> <!--If you are not the seller and you have not favorited it yet -->
+             <%= link_to 'Add to favorites', listing_favorites_path(@listing), method: :post, class: "btn-orange" %>
+            <% end %>
+           </div>
+          </div>
+          <div class="price-zipcode">
+              <div class="show-price">
+                <h5>Type</h5>
+                <p>
+                <% if@listing.listing_type == "Sell" %>
+                  <%= @listing.price %>€
+                  <% else %>
+                  <%= @listing.listing_type %>
+                <% end %>
+                </p>
+              </div>
+               <div class="show-zip-code">
+                <h5>ZipCode</h5>
+                <p><%= @listing.postcode %></p>
+              </div>
+            </div>
+          <p> <%= @listing.description %></p>
+        </div>
       </div>
-      <div class="show-zip-code">
-      <h5>ZipCode</h5>
-      <p><%= @listing.postcode %></p>
+
+
+   <!-------------- MAP ------------->
+      <div id="map"
+       style="width: 100%; height: 300px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      </div>
-        <p> <%= @listing.description %></p>
-      </div>
-   </div>
-  </div>
+
+    </div>
+
 
 
    <!-------------- USER CARD ------------->
    <div class="col-4">
-  <div class="card card-user">
-    <div class="card-user ">
-      <div class="card-user-avatar">
-        <% if @listing.user.avatar.attached? %>
-        <%= cl_image_tag @listing.user.avatar.key, :gravity=>"faces", :crop=>"fill" %>
-        <% else %>
-        <%= image_tag "placeholder.png", alt: "placeholder-img"%>
+    <div class="card card-user">
+      <div class="card-user ">
+        <div class="row">
+          <div class="card-user-avatar">
+            <% if @listing.user.avatar.attached? %>
+            <%= cl_image_tag @listing.user.avatar.key, :gravity=>"faces", :crop=>"fill" %>
+            <% else %>
+             <%= image_tag "placeholder.png", alt: "placeholder-img"%>
+             <% end %>
+            </div>
+            <div class="card-user-username"><h6><%= @listing.user.username %></h6>
+            </div>
+        </div>
+        <div class="card-user-description">
+         <p><%= @listing.user.description %></p>
+        </div>
+      </div>
+      <div class="btn-orange">
+        <%if @current_user == @listing.user %>
+         <%= link_to 'Edit Listing', edit_listing_path(@listing) %>
+          <%elsif @chatroom && @current_user != @listing.user && @chatroom.user == @current_user %> <!-- If the listing doesnt belong to you and you already requested the listing -->
+          <%= link_to 'Go to request', chatroom_path(@chatroom) %>
+          <%elsif @current_user != @listing.user %>
+          <!-- If it's not your listing and you havent requested it yet -->
+          <%= link_to 'Request Listing', listing_chatrooms_path(@listing), method: :post%>
         <% end %>
-      <div class="card-user-username">
-        <h6><%= @listing.user.username %></h6>
       </div>
     </div>
-
-    <div class="card-user-description">
-      <p><%= @listing.user.description %></p>
-    </div>
-   </div>
-    <div class="btn-orange">
-      <%if @current_user == @listing.user %>
-       <%= link_to 'Edit Listing', edit_listing_path(@listing) %>
-      <%elsif @chatroom && @current_user != @listing.user && @chatroom.user == @current_user %> <!-- If the listing doesnt belong to you and you already requested the listing -->
-       <%= link_to 'Go to request', chatroom_path(@chatroom) %>
-      <%elsif @current_user != @listing.user %>
-       <!-- If it's not your listing and you havent requested it yet -->
-       <%= link_to 'Request Listing', listing_chatrooms_path(@listing), method: :post%>
-      <% end %>
-    </div>
-
-   </div>
   </div>
- </div>
 </div>
 
-    <div id="map"
-     style="width: 100%; height: 200px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
 
-     </div>
- </div>
 
