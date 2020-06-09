@@ -1,25 +1,31 @@
 .form {
-background: white;
-padding: 20px;
-border-radius: 5px;
-h2 {
-  text-align: center;
-  font-size: 25px;
-  margin-bottom: 50x;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  h2 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 50x;
   }
-.btn-orange {
-  width: 100%;
-}
+
+  .btn-orange {
+    width: 100%;
+  }
 }
 
 .btn-orange-form {
   color:#FAFAFA !important;
   background-color:$orange!important;
   padding: 8px 12px!important;
-  font-weight: bolds!important; 
+  font-weight: bolds!important;
   border-style: none!important;
   border-color: none!important;
   width: 100%!important;
+  border-radius:12px !important;
 }
 
 
@@ -37,18 +43,21 @@ legend {
   margin-bottom: 10px;
 }
 
-.custom-check {  
+.custom-check {
   input {
     display: none;
   }
   .form-check {
     padding-left: 0;
+    display: inline-block;
+    justify-content:center;
   }
   label {
     color:#FAFAFA!important;
     background-color:$orange;
     padding: 8px 12px;
-    font-weight: bolds;
+    font-weight: medium;
+    border-radius:12px;
     &:hover {
       opacity: 0.8;
       cursor: pointer;
@@ -58,4 +67,8 @@ legend {
       color: white;
       opacity: 1;}
     }
+}
+
+.form-post {
+  text-align:center;
 }

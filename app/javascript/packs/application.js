@@ -38,8 +38,24 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 
   initCustomCheck();
-  initMapbox();
+  if (document.querySelector('.show-map') != undefined){
+    initMapbox();
+  };
   initChatroomCable();
 });
 
+
 import "controllers"
+
+if (document.querySelector('.event-dispatcher') != undefined) {
+  document.querySelector('.event-dispatcher').addEventListener('click', () => {
+    document.dispatchEvent(new Event('initMap'));
+  });
+
+  document.addEventListener('initMap', () => {
+    setTimeout(function(){
+      initMapbox();
+    }, 500);
+  })
+}
+

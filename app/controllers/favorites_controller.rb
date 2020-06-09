@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
     @favorite.listing = Listing.find(params[:listing_id])
     @favorite.save
     authorize @favorite
-    redirect_to listing_path(@favorite.listing)
+    redirect_to listing_path(@favorite.listing), notice: "Listing was added to favorites!"
   end
 
   def show

@@ -12,7 +12,7 @@
         <%= text_field_tag :query,
         params[:query],
         class: "form-control search-form",
-          placeholder: "Search for plants/cuttings/seeds around you"
+          placeholder: "Search for plants, cuttings and seeds around you"
           %>
           <%= button_tag "", class: "fa fa-search pull-right btn btn-default search-btn", id:"search-this" %>
         </div>
@@ -40,14 +40,14 @@
         <%= image_tag ("picture-card-home.gif") %>
         <h4>Browse all plants</h4>
         <p>Get wonderful plants from our community</p>
-        <%= link_to "Browse all plants", listings_path,class: "btn-orange-card"%>
+        <%= link_to "Browse all plants", listings_path, data:{turbolinks:false},class: "btn-orange-card"%>
       </div>
 
       <div class="card card-homepage">
         <%= image_tag ("picture-card-home.gif") %>
         <h4>Swap & Review</h4>
         <p>Swap your plants with other plants lover</p>
-        <%= link_to "Start Swapping", listings_path, class: "btn-orange-card"%>
+        <%= link_to "Start Swapping", listings_path,data:{turbolinks:false}, class: "btn-orange-card"%>
       </div>
 
       <div class="card card-homepage">
