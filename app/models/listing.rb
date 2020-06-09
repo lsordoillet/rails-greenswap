@@ -27,3 +27,6 @@ class Listing < ApplicationRecord
     [postcode, city, street_name].compact.join(', ')
   end
 end
+
+
+

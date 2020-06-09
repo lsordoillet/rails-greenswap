@@ -4,6 +4,7 @@ class ListingsController < ApplicationController
 
   def index
     @listings = policy_scope(Listing).geocoded
+
     if params["search"].present?
       if params["search"]["plant_category"].present? && params["search"]["plant_category"].second.present?
         @listings = @listings.where(plant_category: params["search"]["plant_category"])
@@ -15,14 +16,15 @@ class ListingsController < ApplicationController
        @listings = @listings.where(care_level_category: params["search"]["care_level_category"])
       end
     end
+    
+
     @markers = @listings.map do |listing|
        {
           lat: listing.latitude,
           lng: listing.longitude,
            infoWindow: render_to_string(partial: "info_window", locals: { listing: listing })
         }
-
-    end
+      end
   end
 
 
