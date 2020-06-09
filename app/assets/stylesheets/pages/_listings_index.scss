@@ -38,7 +38,9 @@ p {
   justify-content: flex-end
 }
 
-
+.nav-pills {
+  border-radius:12px;
+}
 .nav-pills .nav-link.active {
   background-color:$orange;
 }
