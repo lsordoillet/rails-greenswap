@@ -11,10 +11,6 @@ class ChatroomsController < ApplicationController
     redirect_to chatroom_path(@chatroom)
   end
 
-  def change_status
-    @message.status = "cancelled"
-  end
-
   def update
     @chatroom.status = params[:status]
     @chatroom.save
