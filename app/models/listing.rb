@@ -9,8 +9,7 @@ class Listing < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   validates :title, presence: true
-  VALID_STREETNAME_REGEX = /\A[-a-z]+\z/
-  validates :street_name, presence: true, format: { with: VALID_STREETNAME_REGEX }
+  validates :street_name, presence: true
   validates :postcode, presence: true
   validates :city, presence: true
   validates :description, presence: true
