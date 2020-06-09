@@ -26,7 +26,6 @@
             </div>
             <div class="show-edit-delete">
             <% if @current_user == @listing.user  %>
-            <%= link_to 'Edit', edit_listing_path(@listing) %>
             <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } %>
              <% elsif @favorite && @current_user != @listing.user &&  @favorite.user == @current_user%> <!--If you are not the seller and you have already favorited it-->
              <%= link_to "Remove favorite", favorite_path(@favorite), method: :delete %>
@@ -57,13 +56,14 @@
 
 
    <!-------------- MAP ------------->
+   <div class="show-map">
       <div id="map"
        style="width: 100%; height: 300px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-
     </div>
+</div>
 
 
 
