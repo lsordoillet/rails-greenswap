@@ -1,0 +1,14 @@
+<h1>From my requests</h1>
+<%@chatrooms.each do |chatroom|%>
+<% if chatroom.user === current_user%>
+<%=chatroom.id%>
+<%end%>
+<%end%>
+
+
+<h1>From my offers</h1>
+<%@chatrooms.each do |chatroom|%>
+<% if chatroom.listing.user === current_user%>
+<%=chatroom.id%>
+<%end%>
+<%end%>
