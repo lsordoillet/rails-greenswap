@@ -1,6 +1,32 @@
 Listing id: <%=@chatroom.listing.id%>
+<br>
 Chatroom id: <%=@chatroom.id%>
+<br>
 CURRENT USER: <%=current_user.username%>
+<br>
+STATUS: <%=@chatroom.status%>
+<br>
+<%if @current_user != @chatroom.listing.user %>
+  <div class="btn btn-orange">
+  <% if @chatroom.status == "Enquiring" || @chatroom.status == "Cancelled" %>
+    <%= link_to 'Request listing', chatroom_path(@chatroom, status: "Pending"), method: :patch %>
+  <% elsif%>
+    <%= link_to 'Cancel request', chatroom_path(@chatroom, status: "Cancelled"), method: :patch %>
+  <% end %>
+  </div>
+  <%end%>
+
+<%if @current_user == @chatroom.listing.user %>
+  <% if @chatroom.status == "Pending" %>
+    <div class="btn btn-orange">
+      <%= link_to 'Confirm request', chatroom_path(@chatroom, status: "Confirmed"), method: :patch %>
+    </div>
+  <% elsif  @chatroom.status == "Confirmed" %>
+    <div class="btn btn-orange">
+      <%= link_to 'Cancel request', chatroom_path(@chatroom, status: "Cancelled"), method: :patch %>
+    </div>
+  <% end %>
+<% end %>
 
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
@@ -21,7 +47,6 @@ CURRENT USER: <%=current_user.username%>
   <% end %>
 </div>
 -->
-
 <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
   <%if @chatroom.listing.user != current_user%>  <!-- we need this if to display correct chat partner -->
     <%= f.input :content, label: false, placeholder: "Message #{@chatroom.listing.user.username}" %>
