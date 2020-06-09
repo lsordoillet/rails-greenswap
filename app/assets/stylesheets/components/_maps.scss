@@ -9,5 +9,30 @@
   border: 1px solid rgb(230,230,230);
   overflow: hidden;
   display: flex;
+  padding: 0;
+  width: 302px;
+  .card-index {
+    margin: 0;
+    box-shadow: none;
+  }
 }
 
+.mapboxgl-popup-close-button{
+    z-index: 10;
+    color: white;
+    font-size: 21px;
+}
+
+
+.mapboxgl-popup .mapboxgl-popup-anchor-top{
+    max-width: 302px !important;
+}
+
+#map{
+  width: 100%;
+  height: 540px !important;
+}
+
+.tab-content, .tab-pane{
+  min-height: 540px !important;
+}
