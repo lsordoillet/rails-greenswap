@@ -25,12 +25,4 @@ class Listing < ApplicationRecord
   def address
     [postcode, city, street_name].compact.join(', ')
   end
-
-  include PgSearch::Model
-
-  pg_search_scope :category_search,
-    against: [:plant_category, :listing_type, :care_level_category ],
-  using: {
-    tsearch: {prefix: true}
-  }
 end

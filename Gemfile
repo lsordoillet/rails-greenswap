@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
 
 gem 'geocoder'
-gem 'pg_search'
 gem 'turbolinks_render'
 gem 'pundit'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
