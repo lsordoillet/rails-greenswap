@@ -92,7 +92,7 @@
       <div class="btn-orange">
         <%if @current_user == @listing.user %>
          <%= link_to 'Edit Listing', edit_listing_path(@listing) %>
-          <%elsif @chatroom && @current_user != @listing.user && @chatroom.user == @current_user %> <!-- If the listing doesnt belong to you and you already requested the listing -->
+          <%elsif @chatroom && @current_user != @listing.user && @chatroom.user == @current_user && current_user != nil %> <!-- If the listing doesnt belong to you and you already requested the listing -->
           <%= link_to 'Go to request', chatroom_path(@chatroom) %>
           <%elsif @current_user != @listing.user %>
           <!-- If it's not your listing and you havent requested it yet -->
