@@ -57,5 +57,11 @@ if (document.querySelector('.event-dispatcher') != undefined) {
   })
 }
 
+if ( document.getElementById("listing_price") != undefined) {
+  document.getElementById("listing_price").
+romain.addEventListener("click", (event) => {
+  console.log(event);
+  console.log(event.currentTarget);
+});
 
 import "controllers"
