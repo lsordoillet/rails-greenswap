@@ -13,16 +13,16 @@
             <div class="card-horizontal-infos">
               <h2><%= chatroom.listing.title %> <br>
               <span style="color:#CDCACA; font-weight: normal;font-size: 15px;">Conversation with: <%= chatroom.listing.user.username %></span></h2>
+            </div>
               <div class="messages-box">
             <% if !chatroom.messages.last.nil? %>
               <p><%= chatroom.messages.last.content %> </p>
             <% end %>
-            </div>
+              </div>
               <div class="link-status-pending">
                 <%=chatroom.status %>
               </div>
             </div>
-          </div>
         <% end %>
       <% end %>
   <% end %>
