@@ -1,57 +1,75 @@
-Listing id: <%=@chatroom.listing.id%>
-<br>
-Chatroom id: <%=@chatroom.id%>
-<br>
-CURRENT USER: <%=current_user.username%>
-<br>
-STATUS: <%=@chatroom.status%>
-<br>
-<%if @current_user != @chatroom.listing.user %>
-  <div class="btn btn-orange">
-  <% if @chatroom.status == "Enquiring" || @chatroom.status == "Cancelled" %>
-    <%= link_to 'Request listing', chatroom_path(@chatroom, status: "Pending"), method: :patch %>
-  <% elsif%>
-    <%= link_to 'Cancel request', chatroom_path(@chatroom, status: "Cancelled"), method: :patch %>
-  <% end %>
-  </div>
-  <%end%>
-
-<%if @current_user == @chatroom.listing.user %>
-  <% if @chatroom.status == "Pending" %>
-    <div class="btn btn-orange">
-      <%= link_to 'Confirm request', chatroom_path(@chatroom, status: "Confirmed"), method: :patch %>
-    </div>
-  <% elsif  @chatroom.status == "Confirmed" %>
-    <div class="btn btn-orange">
-      <%= link_to 'Cancel request', chatroom_path(@chatroom, status: "Cancelled"), method: :patch %>
-    </div>
-  <% end %>
-<% end %>
-
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.username %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
-    </div>
-  <% end %>
+<div class="container">
+	<div class="d-flex">
+		<div class="chatroom-form-cardindex-username">
+			<div class="chatroom-message-username">
+				<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+					<% @chatroom.messages.each_with_index do |message, index| %>
+					<div class="message-container <%= index.odd? ? "odd-message" : "even-message"  %>" id="message-<%= message.id %>" >
+						<i class="author">
+							<div class="card-user-avatar">
+						<% if message.user.avatar.attached? %>
+						<%= cl_image_tag message.user.avatar.key, height: 50, weight: 50, :gravity=>"faces", :crop=>"fill" %>
+						<% else %>
+						 <%= image_tag "placeholder.png",height: 50, weight: 50, alt: "placeholder-img"%>
+						 <% end %>
+						</div>
+							<span><%= message.user.username %></span>
+							<small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+						</i>
+						<p><%= message.content %></p>
+					</div>
+					<% end %>
+				</div>
+			<div class="chatroom-form">
+				<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+				<%if @chatroom.listing.user != current_user%>  <!-- we need this if to display correct chat partner -->
+				<%= f.input :content, label: false, placeholder: "Message #{@chatroom.listing.user.username}" %>
+				<%else%>
+				<%= f.input :content, label: false, placeholder: "Message #{@chatroom.user.username}" %>
+				<% end %>
+				<%= f.submit "Send", class: "btn btn-primary" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="card card-index" id="index-card" style="margin-left: 100px; height: 100%; width: 300px;">
+		<% if !@chatroom.listing.photos.first.nil?%>
+		<%= cl_image_tag @chatroom.listing.photos.first.key, :gravity=>"faces", :crop=>"fill", class:"card-index-img" %>
+		<% else %>
+		<%= image_tag "placeholder.png", alt: "placeholder-img", class:"card-index-img" %>
+		<% end %>
+	<div class="card-index-details">
+	 	<span class="card-index-details-title"><%= @chatroom.listing.title %></span>
+	 	<p class="card-index-details-description"> <b> <%= @chatroom.listing.plant_category %>  -   <%= @chatroom.listing.listing_type %></b></p>
+ 	</div>
+ 	<div class="card-index-infos">
+		<p class="card-index-infos-item"><span class="card-index-infos-category">Care Level:</span><%= @chatroom.listing.care_level_category %></p>
+		<p class="card-index-infos-item"><span class="card-index-infos-category">Location:</span><%= @chatroom.listing.postcode %> - <%= @chatroom.listing.city %></p>
+		<% unless @chatroom.listing.user == current_user %>
+		<p class="card-index-infos-item"><span class="card-index-infos-category">Owner:</span><%= @chatroom.listing.user.username %></p>
+		<% end %>
+		<p class="card-index-infos-item"><span class="card-index-infos-category">Status:</span><%= @chatroom.status %></p>
+		<% if @current_user != @chatroom.listing.user %>
+	<div class="btn-orange-card">
+		<% if @chatroom.status == "Enquiring" || @chatroom.status == "Cancelled" %>
+		<%= link_to 'Request listing', chatroom_path(@chatroom, status: "Pending"), method: :patch %>
+		<% elsif %>
+		<%= link_to 'Cancel request', chatroom_path(@chatroom, status: "Cancelled"), method: :patch %>
+		<% end %>
+	</div>
+		<% end %>
+		<%if @current_user == @chatroom.listing.user %>
+		<% if @chatroom.status == "Pending" %>
+	<div class="btn-orange-card">
+		<%= link_to 'Confirm request', chatroom_path(@chatroom, status: "Confirmed"), method: :patch %>
+	</div>
+		<% elsif  @chatroom.status == "Confirmed" %>
+	<div class="btn-orange-card">
+		<%= link_to 'Cancel request', chatroom_path(@chatroom, status: "Cancelled"), method: :patch %>
+	</div>
+	<% end %>
+	<% end %>
 </div>
-
-<!-- if code above causes issues, maybe just this?
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
 </div>
--->
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%if @chatroom.listing.user != current_user%>  <!-- we need this if to display correct chat partner -->
-    <%= f.input :content, label: false, placeholder: "Message #{@chatroom.listing.user.username}" %>
-  <%else%>
-    <%= f.input :content, label: false, placeholder: "Message #{@chatroom.user.username}" %>
-    <%end%>
-  <%= f.submit "Send", class: "btn btn-primary" %>
-<% end %>
+</div>
+</div>

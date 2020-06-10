@@ -38,5 +38,5 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     authorize @chatroom
   end
-  
+
 end
