@@ -1,53 +1,55 @@
 <div class="container">
-<p>From my requests</p>
-<%@chatrooms.each do |chatroom|%>
-<% if chatroom.user == current_user%>
-  <%= link_to chatroom_path(chatroom) do %>
-    <div class="card-horizontal">
-        <% if !chatroom.listing.photos.first.nil?%>
-          <%= cl_image_tag chatroom.listing.photos.first.key, :width=>300, :height=>240, :crop=>"fill" %>
-        <% else %>
-          <%= image_tag "placeholder.png", alt: "placeholder-img", height: 240, width: 300 %>
+  <h1 class="messages"> Messages </h1>
+    <h2 class="messages">From my requests</h2>
+    <%@chatrooms.each do |chatroom|%>
+      <% if chatroom.user == current_user%>
+        <%= link_to chatroom_path(chatroom) do %>
+          <div class="card-horizontal-chatroom">
+            <% if !chatroom.listing.photos.first.nil?%>
+            <%= cl_image_tag chatroom.listing.photos.first.key,:crop=>"fill" %>
+            <% else %>
+            <%= image_tag "placeholder.png", alt: "placeholder-img" %>
+            <% end %>
+            <div class="card-horizontal-infos">
+              <h2><%= chatroom.listing.title %> <br>
+              <span style="color:#CDCACA; font-weight: normal;font-size: 16px;">Conversation with: <%= chatroom.listing.user.username %></span></h2>
+            <% if !chatroom.messages.last.nil? %>
+              <p><%= chatroom.messages.last.content %> </p>
+            <% end %>
+              <div class="link-status-pending">
+                <%=chatroom.status %>
+              </div>
+            </div>
+          </div>
         <% end %>
-      <div class="card-horizontal-infos">
-       <h2><%= chatroom.listing.title %>, <%= chatroom.listing.user.username %> </h2>
-
-      <% if !chatroom.messages.last.nil? %>
-       <p><%= chatroom.messages.last.content %> </p>
-       <%end%>
-        <div class="card-btns">
-          <%=chatroom.status %>
-        </div>
-      </div>
-    </div>
+      <% end %>
   <% end %>
-<%end%>
-<%end%>
+
+
+   <h2 class="messages">From my listings</h2>
+    <%@chatrooms.each do |chatroom|%>
+      <% if chatroom.listing.user == current_user%>
+        <%= link_to chatroom_path(chatroom) do %>
+          <div class="card-horizontal-chatroom">
+            <% if !chatroom.listing.photos.first.nil?%>
+              <%= cl_image_tag chatroom.listing.photos.first.key, :crop=>"fill" %>
+            <% else %>
+              <%= image_tag "placeholder.png", alt: "placeholder-img" %>
+            <% end %>
+            <div class="card-horizontal-infos">
+            <h2><%= chatroom.listing.title %> <br>
+              <span style="color:#CDCACA; font-weight: normal;font-size: 16px;">Conversation with: <%= chatroom.listing.user.username %></span> </h2>
+            <% if !chatroom.messages.last.nil? %>
+            <p><%= chatroom.messages.last.content %> </p>
+            <% end %>
+              <div class="link-status-pending">
+                <%=chatroom.status %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
 </div>
 
-<div class="container">
-<p>From my listings</p>
-<%@chatrooms.each do |chatroom|%>
-<% if chatroom.listing.user == current_user%>
-  <%= link_to chatroom_path(chatroom) do %>
-    <div class="card-horizontal">
-        <% if !chatroom.listing.photos.first.nil?%>
-          <%= cl_image_tag chatroom.listing.photos.first.key, :width=>300, :height=>240, :crop=>"fill" %>
-        <% else %>
-          <%= image_tag "placeholder.png", alt: "placeholder-img", height: 240, width: 300 %>
-        <% end %>
-      <div class="card-horizontal-infos">
-       <h2><%= chatroom.listing.title %>, <%= chatroom.listing.user.username %> </h2>
-      <% if !chatroom.messages.last.nil? %>
-       <p><%= chatroom.messages.last.content %> </p>
-       <%end%>
-        <div class="card-btns">
-          <%=chatroom.status %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<%end%>
-<%end%>
-</div>
 
