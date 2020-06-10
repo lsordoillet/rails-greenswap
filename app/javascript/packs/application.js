@@ -57,11 +57,22 @@ if (document.querySelector('.event-dispatcher') != undefined) {
   })
 }
 
-if ( document.getElementById("listing_price") != undefined) {
-  document.getElementById("listing_price").
-romain.addEventListener("click", (event) => {
-  console.log(event);
-  console.log(event.currentTarget);
+if ( document.getElementById("listing_listing_type_sell") != undefined) {
+  document.getElementById("listing_listing_type_sell").addEventListener('click', () => {
+  document.getElementById("listing_price").disabled = false;
 });
+}
+
+if ( document.getElementById("listing_listing_type_giveaway") != undefined) {
+  document.getElementById("listing_listing_type_giveaway").addEventListener('click', () => {
+  document.getElementById("listing_price").disabled = true;
+});
+}
+
+if ( document.getElementById("listing_listing_type_swap") != undefined) {
+  document.getElementById("listing_listing_type_swap").addEventListener('click', () => {
+  document.getElementById("listing_price").disabled = true;
+});
+}
 
 import "controllers"
