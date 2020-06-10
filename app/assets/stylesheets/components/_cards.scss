@@ -1,15 +1,16 @@
 // CARDS CONTAINER //
 .cards {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
   margin-bottom: 30px;
+  grid-gap: 16px;
 }
 
 // CARDS BASIC STYLE //
 
 .card {
   background-color:$white;
-  width: 302px;
+  width: 100%;
   border-radius: 12px;
   box-shadow: 0px 5px 27px -11px rgba(0,0,0,0.35);
   text-align: center;
@@ -20,7 +21,6 @@
 // CARD FOR HOME PAGE //
 .card-homepage {
    justify-content:space-between;
-   margin:30px;
 
   img {
     width: 150px;
@@ -48,7 +48,6 @@
 // CARD LISTING FOR INDEX //
 
 .card-index {
-  margin: 11px;
 
   .card-index-img {
     margin:0;
