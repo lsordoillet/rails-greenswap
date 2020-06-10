@@ -28,7 +28,7 @@
       <a class="profile-link" id="favorites-tab" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false">Favorites</a>
     </li>
     <li class="nav-item">
-      <a class="profile-link" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="false">My Bookings/Messages</a>
+      <a class="profile-link" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="false">My Confirmed STUFF</a>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
@@ -74,7 +74,7 @@
               <p><%= favorite.listing.description %> </p>
 
               <div class="card-btns">
-              <%= link_to "Remove Favorite", favorite_path(favorite), method: :delete, data: { confirm: "Are you sure?" }%>
+              <%= link_to "Remove Favorite", favorite_path(favorite), method: :delete %>
              </div>
             </div>
           </div>
@@ -83,17 +83,25 @@
     </div>
     <div class="tab-pane fade" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
       <!--MY BOOKINGS TAB CONTENT-->
-      <p>I'm requesting?</p>
+      <p>Requested by me</p>
       <% @my_chatrooms.each do |chatroom| %>
-        <%= chatroom.listing.title %> from <%= chatroom.listing.user.username %>
+        <% if chatroom.status == "Confirmed"%>
+        <%= link_to chatroom_path(chatroom) do %>
+        <%= chatroom.listing.title %>. Owner: <%= chatroom.listing.user.username %>
+        <%end%>
         <br>
+        <%end%>
       <% end %>
       <br>
-      <p>I'm offering</p>
+      <p>Requested from me</p>
       <% @listings.each do |listing| %>
         <% listing.chatrooms.each do |chatroom| %>
-          <%= chatroom.user.username %> is interested in <%= chatroom.listing.title %>
+        <% if chatroom.status == "Confirmed"%>
+        <%= link_to chatroom_path(chatroom) do %>
+        <%= chatroom.listing.title %>. Requested by: <%= chatroom.user.username %>
+        <%end%>
         <br>
+        <%end%>
         <% end %>
         <% end %>
 
