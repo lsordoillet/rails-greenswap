@@ -14,6 +14,7 @@ h2.messages {
   margin-top:15px;
 }
 
+
 .link-status-confirmed {
   color: $green;
   font-weight:600;
@@ -22,7 +23,7 @@ h2.messages {
 }
 
 .link-status-enquiring {
-  color: $green;
+  color: $orange;
   font-weight:600;
   display: flex;
   justify-content:right;
@@ -30,14 +31,14 @@ h2.messages {
 
 
 .link-status-cancelled {
-  color: $green;
+  color: $red;
   font-weight:600;
   display: flex;
   justify-content:right;
 }
 
 .link-status-pending {
-  color: $green;
+  color: $orange;
   font-weight:600;
   display: flex;
   justify-content:right;
