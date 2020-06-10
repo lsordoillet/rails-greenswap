@@ -7,7 +7,7 @@ module ApplicationHelper
     elsif photos_collection.size == 2
       "two-images-grid"
     elsif photos_collection.size == 1
-       "one-image-grid"
+      "one-image-grid"
     else
       "four-images-grid"
     end

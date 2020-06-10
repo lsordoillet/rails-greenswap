@@ -4,15 +4,23 @@ p {
 .col-form-label {
     font-weight: 600;
 }
-.form-check-input{ 
+.form-check-input{
     display: grid;
     margin-left: 5px;
 }
 
 .form-check {
     display: grid;
-    margin-left: 10px;
+
+    label {
+      padding-left:5px;
+    }
 }
+
+.check_boxes abbr {
+  display:none;
+}
+
 .filter {
     margin: 0 20px 20px 20px;
     width: 220px;
