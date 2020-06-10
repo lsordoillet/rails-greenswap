@@ -15,7 +15,7 @@
     </li>
     <% if user_signed_in? %>
     <li class="nav-item">
-      <%= link_to "Messages", "#", class: "nav-link" %>
+      <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
     </li>
     <li class="nav-item">
      <% if current_user.avatar.attached?%>

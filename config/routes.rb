@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/profile", to: 'dashboard#profile'
-  resources :chatrooms, only: [:update, :show] do
+  resources :chatrooms, only: [:update, :show, :index] do
     resources :messages, only: :create
   end    
 

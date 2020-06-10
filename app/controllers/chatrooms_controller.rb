@@ -11,6 +11,16 @@ class ChatroomsController < ApplicationController
     redirect_to chatroom_path(@chatroom)
   end
 
+  def index
+    @chatrooms = policy_scope(Chatroom)
+
+    # authorize @my_requests
+    # authorize @my_offers
+
+    # @listings = policy_scope(Listing).geocoded
+
+  end
+
   def update
     @chatroom.status = params[:status]
     @chatroom.save

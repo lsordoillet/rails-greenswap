@@ -4,7 +4,6 @@ class Listing < ApplicationRecord
   CARE_LEVEL_CATEGORY = ["Easy", "Medium", "Difficult"]
 
   belongs_to :user
-  has_many :chatrooms
   has_many :chatrooms, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
@@ -27,3 +26,6 @@ class Listing < ApplicationRecord
     [postcode, city, street_name].compact.join(', ')
   end
 end
+
+
+

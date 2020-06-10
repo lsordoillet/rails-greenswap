@@ -1,9 +1,15 @@
 p {
    font-weight: 300;
 }
+.col-form-label {
+    font-weight: 600;
+}
+.form-check-input{ 
+    display: grid;
+    margin-left: 5px;
+}
 
-
-.advancedsearch {
+.form-check {
     display: grid;
     margin-left: 10px;
 }
@@ -26,9 +32,6 @@ p {
     font-weight:bold;
 }
 
-.collection_check_boxes {
-
-}
 
 #cards-index {
   border-left: solid 1px black;
