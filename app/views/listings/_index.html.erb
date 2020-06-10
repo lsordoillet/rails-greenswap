@@ -1,6 +1,7 @@
  <div class="cards">
    <% @listings.each do |listing| %>
     <%= link_to listing_path(listing) do %>
+    <% if listing.user != current_user %>
       <div class="card card-index" id="index-card">
         <% if !listing.photos.first.nil?%>
           <%= cl_image_tag listing.photos.first.key, :gravity=>"faces", :crop=>"fill", class:"card-index-img" %>
@@ -17,5 +18,6 @@
         </div>
       </div>
      <% end %>
+    <% end %>
     <% end %>
   </div>
