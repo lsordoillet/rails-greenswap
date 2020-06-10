@@ -45,8 +45,6 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
-import "controllers"
-
 if (document.querySelector('.event-dispatcher') != undefined) {
   document.querySelector('.event-dispatcher').addEventListener('click', () => {
     document.dispatchEvent(new Event('initMap'));
@@ -59,3 +57,5 @@ if (document.querySelector('.event-dispatcher') != undefined) {
   })
 }
 
+
+import "controllers"
