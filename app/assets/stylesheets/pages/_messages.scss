@@ -1,0 +1,46 @@
+h1.messages {
+  text-align:center;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 56px;
+}
+
+h2.messages {
+  color: $blue;
+  text-align: left;
+  width: 100%;
+  display: block;
+  font-size: 21px;
+  margin-top:15px;
+}
+
+.link-status-confirmed {
+  color: $green;
+  font-weight:600;
+  display: flex;
+  justify-content:right;
+}
+
+.link-status-enquiring {
+  color: $green;
+  font-weight:600;
+  display: flex;
+  justify-content:right;
+}
+
+
+.link-status-cancelled {
+  color: $green;
+  font-weight:600;
+  display: flex;
+  justify-content:right;
+}
+
+.link-status-pending {
+  color: $green;
+  font-weight:600;
+  display: flex;
+  justify-content:right;
+}
+
+
