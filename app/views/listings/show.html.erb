@@ -93,7 +93,7 @@
         <%if @current_user == @listing.user %>
          <%= link_to 'Edit Listing', edit_listing_path(@listing) %>
           <%elsif @chatroom && @current_user != @listing.user && @chatroom.user == @current_user %> <!-- If the listing doesnt belong to you and you already requested the listing -->
-          <%= link_to 'Go to request', chatroom_path(@chatroom) %>
+          <%= link_to 'Go to Conversation', chatroom_path(@chatroom) %>
           <%elsif @current_user != @listing.user %>
           <!-- If it's not your listing and you havent requested it yet -->
           <%= link_to 'Request Listing', listing_chatrooms_path(@listing, status: "Pending"), method: :post %>
