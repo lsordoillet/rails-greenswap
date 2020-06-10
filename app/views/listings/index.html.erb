@@ -9,11 +9,11 @@
           <%= f.input :plant_category, label: "Plant Category",  collection: Listing::PLANT_CATEGORY, as: :check_boxes, input_html: { 'data-action' => 'change->filter#refresh' } %>
           <%= f.input :listing_type, label: "Listing Type", collection: Listing::LISTING_TYPE, as: :check_boxes, input_html: { 'data-action' => 'change->filter#refresh' } %>
           <%= f.input :care_level_category, label: "Care Level", collection: Listing::CARE_LEVEL_CATEGORY, as: :check_boxes, input_html: { 'data-action' => 'change->filter#refresh' } %>
-          <%= link_to "Reset", listings_path,class: "btn-orange-form", :style=>"margin-left: 10px;" %>
+          <%= link_to "Reset", listings_path,class: "btn-orange-form", :style=>"display: block; text-align: center;" %>
         <% end %>
     </div>
    <!----------------- END OF FILTERING BOX ------------->
- 
+
   <div class="container">
     <div class="btn-map-grid">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -28,20 +28,20 @@
     <div class="tab-content" id="pills-tabContent">
     <!--------------  CARDS ------------->
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-           <div id="listings" data-target="listings">
-      <%= render 'index', listings: @listings %>
-    </div>
-    </div>
+          <div id="listings" data-target="listings">
+            <%= render 'index', listings: @listings %>
+          </div>
+      </div>
 
 
     <!--------------  MAP ------------->
-     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      <div id="map"
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+       <div id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-  </div>
+       </div>
+     </div>
+   </div>
 
  </div>
 </div>

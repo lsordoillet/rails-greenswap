@@ -38,3 +38,12 @@
   background-color: #FFFFFF;
   border-color: #dee2e6 #dee2e6 #FFFFFF;
 }
+
+td {
+  color: $blue;
+}
+caption {
+  caption-side: top;
+  font-weight: 600;
+  color: $orange
+}
