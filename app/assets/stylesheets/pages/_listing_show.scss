@@ -20,6 +20,8 @@
   margin-left: 12px;
   h4 {
     font-weight:700;
+    font-size:30px;
+    margin-bottom:20px;
   }
 }
 
@@ -67,6 +69,14 @@
 
 .show-header{
   justify-content: space-between;
+}
+
+.show-description {
+  width:95%;
+   p {
+    text-align: justify
+  }
+
 }
 
 .contact-a {
