@@ -28,18 +28,14 @@
   border-radius:12px !important;
 }
 
-fieldset {
+fieldset.form-group.radio_buttons {
   text-align: -webkit-center;
 }
 
 .col-form-label {
   font-weight: 400!important;
 }
-
-legend {
-  display: inline-block!important;
-}
-
+ 
 .category-choices {
   display: flex !important;
 }

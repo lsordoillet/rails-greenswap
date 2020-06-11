@@ -18,6 +18,11 @@
 .show-title {
   margin-right: 40px;
   margin-left: 12px;
+  h4 {
+    font-weight:700;
+    font-size:30px;
+    margin-bottom:20px;
+  }
 }
 
 .show-edit-delete {
@@ -66,9 +71,18 @@
   justify-content: space-between;
 }
 
+.show-description {
+  width:95%;
+   p {
+    text-align: justify
+  }
+
+}
+
 .contact-a {
   margin: 8px;
 }
+
 .show-star{
   display: flex;
   margin-left: -15px;
@@ -76,3 +90,4 @@
 .star-gray{
   margin-left: -25px;
 }
+
