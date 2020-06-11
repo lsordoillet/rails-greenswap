@@ -36,18 +36,24 @@
           </div>
           <div class="price-zipcode">
               <div class="show-price">
+              <% if@listing.listing_type == "Sell" %>
+                <h5>Price</h5>
+                <p>
+                <%= @listing.price %>€
+              <% else %>
                 <h5>Type</h5>
                 <p>
-                <% if@listing.listing_type == "Sell" %>
-                  <%= @listing.price %>€
-                  <% else %>
-                  <%= @listing.listing_type %>
-                <% end %>
+                <%= @listing.listing_type %>
+              <% end %>
                 </p>
               </div>
                <div class="show-zip-code">
-                <h5>ZipCode</h5>
+                <h5>Zip Code</h5>
                 <p><%= @listing.postcode %></p>
+              </div>
+              <div class="show-zip-code">
+                <h5>Care Level</h5>
+                <p><%= @listing.care_level_category %></p>
               </div>
             </div>
           <p> <%= @listing.description %></p>
