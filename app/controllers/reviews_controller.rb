@@ -7,8 +7,8 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.user = current_user
     @chatroom = Chatroom.find(params[:chatroom_id])
+    @review.user = @chatroom.listing.user
     @review.chatroom = @chatroom
     authorize @review
     if @review.save

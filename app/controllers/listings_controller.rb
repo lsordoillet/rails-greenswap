@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
        @listings = @listings.where(care_level_category: params["search"]["care_level_category"])
       end
     end
-    
+
 
     @markers = @listings.map do |listing|
        {
@@ -41,7 +41,6 @@ class ListingsController < ApplicationController
 
   def show
     @chatroom = @listing.chatrooms.find_by(user: current_user) || Chatroom.new
-    
     @favorite = @listing.favorites.find_by(user: current_user)
     @markers =
        [{
@@ -49,7 +48,7 @@ class ListingsController < ApplicationController
           lng: @listing.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing })
         }]
-
+    average_rating
   end
 
   def create
@@ -89,4 +88,21 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     authorize @listing
   end
+
+  def average_rating
+    ratings = []
+    @listing.user.reviews.each do |review|
+      ratings << review.rating
+    end
+    if ratings.size != 0
+    @average = ratings.reduce(:+).to_i / ratings.size
+    else
+    @average = 0
+    end
+  end
+  # average = 0
+  # sum = 0
+  # @reviews.each do |review|
+  # sum += review.rating.to_i
+  # average = sum/@reviews.length
 end

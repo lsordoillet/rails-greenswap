@@ -13,7 +13,7 @@
         <div class="container">
         <div class="row">
           <div class="col-12">
-          <%= f.input :comment, placeholder: "How was you experience?" %>
+          <%= f.input :comment, placeholder: "How was your experience?" %>
         </div>
           </div>
            <div class="row">
@@ -21,7 +21,7 @@
             <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", :style=>"align-items: center;" %>
           </div>
           </div>
-          <%= f.submit "Send your review" , class: "btn-orange-form" %>
+          <%= f.submit "Submit" , class: "btn-orange-form" %>
           </div>
       <% end %>
      </div>

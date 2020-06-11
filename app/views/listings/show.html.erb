@@ -80,13 +80,21 @@
              <% end %>
             </div>
             <div class="card-user-username"><h6><%= @listing.user.username %></h6>
-              <div class="user-rating">
-               <!-- <%= @listing.chatrooms.reviews.rating %> -->
-
-
-                </div>
+            <div class="show-star">
+              <div class="star-yellow">
+              <p class="font-weight-lighter" style="margin-left: 30px; color: #F6BC8D;"><% @average.times do%>
+              ★
+              <% end %>
+              </div>
+              <div class="star-gray">
+              <p class="font-weight-lighter" style="margin-left: 30px; color: #d2d2d2;"><% (5-@average).times do%>
+              ★
+              <% end %>
+              </div>
             </div>
-        </div>
+              </div>
+            </div>
+
         <div class="card-user-description">
          <p><%= @listing.user.description %></p>
         </div>
