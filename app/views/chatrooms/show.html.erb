@@ -37,7 +37,7 @@
 	</div>
 
 	 <%= link_to listing_path(@chatroom.listing) do %>
-	<div class="card card-index" id="index-card" style="margin-left: 100px; height: 100%; width: 300px; position: sticky; top: 20px;">
+	<div class="card card-index" id="chatroom-card">
 
 		<% if !@chatroom.listing.photos.first.nil?%>
 		<%= cl_image_tag @chatroom.listing.photos.first.key, :gravity=>"faces", :crop=>"fill", class:"card-index-img" %>

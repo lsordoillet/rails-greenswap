@@ -1,12 +1,13 @@
 .odd-message{
 // float: right;
-text-align: right;
-display: flex;
-flex-direction: row-reverse;
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
 .author {
-align-items: flex-end;
-display: flex;
-flex-direction: row-reverse;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row-reverse;
+  display: grid;
   }
 .card-user-avatar{
   height: 100%;
@@ -21,11 +22,24 @@ flex-direction: row-reverse;
 .chatroom-form-cardindex-username{
   flex-grow: 1;
 }
-// .message-container{
-//   display: flex;
-//   justify-content: space-between;
-// }
+
 
 .chatroom-username-time-content{
   width: 90%;
 }
+
+#chatroom-card{
+  margin-left: 100px;
+  width: 300px;
+  position: sticky;
+  top: 20px;
+}
+
+.author{
+  display: grid;
+}
+
+small {
+  color: grey;
+}
+
