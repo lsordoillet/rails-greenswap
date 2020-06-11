@@ -18,26 +18,28 @@
         </div>
           </div>
           <div class="row">
-          <div class="col-6">
+           <div class="col-5">
+          <%= f.input :street_name, placeholder:"My street name ..." %>
+          </div>
+          <div class="col-3">
             <%= f.input :postcode %>
           </div>
-          <div class="col-6">
+          <div class="col-4">
             <%= f.input :city %>
           </div>
           </div>
-           <div class="row">
-          <div class="col-12">
-          <%= f.input :street_name, placeholder:"My street name ..." %>
-          </div>
-          </div>
+          
           <div class="row">
           <div class="col-12">
           <%= f.input :description, placeholder:"My offering listing has a size of ..." %>
           </div>
           </div>
+          <div class="custom-check-wrapper">
+            <%= f.input :listing_type, as: :radio_buttons , wrapper_html: { class: 'custom-check' }, collection: Listing::LISTING_TYPE %>
+          </div>
           <div class="row">
-            <div class="col-6">
-            <%= f.input :price %>
+            <div class="col-6" >
+            <%= f.input :price, :disabled => true, :id => "listing_price" %>
             </div>
             <div class="col-6">
             <%= f.input :quantity %>
@@ -46,9 +48,6 @@
           <div class="form-group">
           <div class="custom-check-wrapper">
             <%= f.input :plant_category, as: :radio_buttons , wrapper_html: { class: 'custom-check' },  collection: Listing::PLANT_CATEGORY %>
-          </div>
-          <div class="custom-check-wrapper">
-            <%= f.input :listing_type, as: :radio_buttons , wrapper_html: { class: 'custom-check' }, collection: Listing::LISTING_TYPE %>
           </div>
           <div class="custom-check-wrapper">
             <%= f.input :care_level_category, wrapper_html: { class: 'custom-check' }, as: :radio_buttons, collection: Listing::CARE_LEVEL_CATEGORY %>

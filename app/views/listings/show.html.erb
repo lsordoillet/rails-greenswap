@@ -87,12 +87,11 @@
         </div>
       </div>
       <%if @current_user != @listing.user && (!@chatroom || @chatroom.user != @current_user )%>
-        <%= link_to 'Contact Owner', listing_chatrooms_path(@listing, status: "Enquiring"), method: :post %>
+      <%= link_to 'Contact Owner', listing_chatrooms_path(@listing, status: "Enquiring"), method: :post, :class=>"contact-a" %>
       <% end %>
       <div class="btn-orange">
         <%if @current_user == @listing.user %>
          <%= link_to 'Edit Listing', edit_listing_path(@listing) %>
-
           <%elsif @chatroom && @current_user != @listing.user && @chatroom.user == @current_user && current_user != nil %> <!-- If the listing doesnt belong to you and you already requested the listing -->
            <%= link_to 'Go to Conversation', chatroom_path(@chatroom) %>
           <%elsif @current_user != @listing.user %>
