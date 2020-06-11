@@ -38,7 +38,7 @@
             <% end %>
             <div class="card-horizontal-infos">
             <h2><%= chatroom.listing.title %> <br>
-              <span style="color:#CDCACA; font-weight: normal;font-size: 16px;">Conversation with: <%= chatroom.listing.user.username %></span> </h2>
+              <span style="color:#CDCACA; font-weight: normal;font-size: 16px;">Conversation with: <%= chatroom.user.username %></span> </h2>
             <% if !chatroom.messages.last.nil? %>
             <p><%= chatroom.messages.last.content %> </p>
             <% end %>
