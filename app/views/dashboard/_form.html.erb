@@ -1,6 +1,27 @@
-  <%= simple_form_for @profile ,url: profile_update_path, method: :patch do |f| %>
-      <%= f.input :description %>
-      <%= f.input :avatar, as: :file %>
-      <%= f.submit "Edit profile", class: "btn-orange-submit" %>
-    <% end %>
+  <div class="container form">
+  <div class="row">
+    <div class="col-12 col-sm-6 sol-sm-offset-3">
+     <div class="container form">
+      <div class="row">
+       <div class="col-12">
+        <h2> Edit your profile details </h2>
+        </div>
+        </div>
+          <%= simple_form_for @profile ,url: profile_update_path, method: :patch do |f| %>
+        <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <%= f.input :description, placeholder: "Tell the community some facts about yourself ..." %>
+          </div>
+        </div>
+        <div>
+          <%= f.input :avatar, as: :file %>
+          <%= f.submit "Edit", class: "btn-orange-form", :style=>"width: 100%;" %>
+        </div>
+      <% end %>
+  </div>
+    </div>
+  </div>
+ </div>
+  </div>
 

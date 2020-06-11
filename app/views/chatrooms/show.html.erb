@@ -4,20 +4,23 @@
 			<div class="chatroom-message-username">
 				<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
 					<% @chatroom.messages.each_with_index do |message, index| %>
-					<div class="message-container <%= index.odd? ? "odd-message" : "even-message"  %>" id="message-<%= message.id %>" >
+					<div class="message-container <%= (message.user == current_user) ? "odd-message" : "even-message"  %>" id="message-<%= message.id %>" >
 						<i class="author">
 							<div class="card-user-avatar">
 						<% if message.user.avatar.attached? %>
-						<%= cl_image_tag message.user.avatar.key, height: 50, weight: 50, :gravity=>"faces", :crop=>"fill" %>
+						<%= cl_image_tag message.user.avatar.key, height: 50, width: 50, :radius => 50, :gravity=>"faces", :crop=>"fill" %>
 						<% else %>
-						 <%= image_tag "placeholder.png",height: 50, weight: 50, alt: "placeholder-img"%>
+						 <%= image_tag "placeholder.png",height: 50, width: 50,:radius => 50, alt: "placeholder-img"%>
 						 <% end %>
 						</div>
+						<div class="chatroom-username-time-content">
 							<span><%= message.user.username %></span>
-							<small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+							<small style="margin-right: 5px;"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
 						</i>
 						<p><%= message.content %></p>
-					</div>
+						</div>
+						</div>
+					<br style="block;">
 					<% end %>
 				</div>
 			<div class="chatroom-form">
@@ -27,12 +30,15 @@
 				<%else%>
 				<%= f.input :content, label: false, placeholder: "Message #{@chatroom.user.username}" %>
 				<% end %>
-				<%= f.submit "Send", class: "btn btn-primary" %>
+				<%= f.submit "Send", class: "btn-orange-message", :style=>"border-color: none;", :style=> "border-style:none;"%>
 				<% end %>
 			</div>
 		</div>
 	</div>
-	<div class="card card-index" id="index-card" style="margin-left: 100px; height: 100%; width: 300px;">
+
+	 <%= link_to listing_path(@chatroom.listing) do %>
+	<div class="card card-index" id="chatroom-card">
+
 		<% if !@chatroom.listing.photos.first.nil?%>
 		<%= cl_image_tag @chatroom.listing.photos.first.key, :gravity=>"faces", :crop=>"fill", class:"card-index-img" %>
 		<% else %>
@@ -71,5 +77,6 @@
 	<% end %>
 </div>
 </div>
+<% end %>
 </div>
 </div>

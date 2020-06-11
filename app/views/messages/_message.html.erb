@@ -1,7 +1,16 @@
-<div class="message-container" id="message-<%= message.id %>">
+<div class="message-container" id="message-<%= message.id %>" >
   <i class="author">
-    <span><%= message.user.username %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    <div class="card-user-avatar">
+      <% if message.user.avatar.attached? %>
+        <%= cl_image_tag message.user.avatar.key, height: 50, width: 50, :radius => 50, :gravity=>"faces", :crop=>"fill" %>
+      <% else %>
+        <%= image_tag "placeholder.png",height: 50, width: 50,:radius => 50, alt: "placeholder-img"%>
+      <% end %>
+    </div>
+      <div class="chatroom-username-time-content">
+        <span><%= message.user.username %></span>
+        <small><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
   </i>
-  <p><%= message.content %></p>
+        <p><%= message.content %></p>
+      </div>
 </div>
