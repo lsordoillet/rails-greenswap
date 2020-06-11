@@ -19,7 +19,7 @@
                <p><%= chatroom.messages.last.content %> </p>
               <% end %>
             </div>
-            <div class="link-status-pending">
+            <div class="link-status-<%=chatroom.status.downcase%>">
                 <%=chatroom.status %>
             </div>
           </div>
@@ -40,7 +40,6 @@
             <% end %>
             <div class="card-horizontal-infos">
             <h2><%= chatroom.listing.title %> <br>
-
               <span style="color:#CDCACA; font-weight: normal;font-size: 15px;">Conversation with: <%= chatroom.user.username %></span> </h2>
             </div>
             <div class="messages-box">
@@ -48,7 +47,7 @@
                 <p><%= chatroom.messages.last.content %> </p>
               <% end %>
             </div>
-            <div class="link-status-pending">
+            <div class="link-status-<%=chatroom.status.downcase%>">
                 <%=chatroom.status %>
             </div>
             </div>
