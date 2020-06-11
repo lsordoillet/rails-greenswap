@@ -30,9 +30,6 @@
   background-color:$orange!important;
   padding: 8px 12px!important;
   font-weight: medium;
-  border-color: none!important;
-  border-radius: 12px!important;
-
 }
 
 .btn-orange:hover {
@@ -105,3 +102,11 @@
   border-width: 2px;
 }
 
+.btn-orange-message {
+    color:#FAFAFA !important;
+    background-color:$orange!important;
+    padding: 8px 12px!important;
+    font-weight: medium;
+    border-color: none!important;
+    border-radius: 12px!important;
+}
