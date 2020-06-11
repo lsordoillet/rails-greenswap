@@ -1,8 +1,31 @@
 .odd-message{
-float: right;
+// float: right;
 text-align: right;
+display: flex;
+flex-direction: row-reverse;
+.author {
+align-items: flex-end;
+display: flex;
+flex-direction: row-reverse;
+  }
+.card-user-avatar{
+  height: 100%;
+  margin-left: 20px;
+  }
 }
 
+.even-message{
+  display: flex;
+  justify-content: space-between;
+}
 .chatroom-form-cardindex-username{
   flex-grow: 1;
+}
+// .message-container{
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.chatroom-username-time-content{
+  width: 90%;
 }
