@@ -1,0 +1,30 @@
+<%= link_to '< Back to Profile', profile_path, style:"margin-left:10px;" %>
+
+ <div class="container form">
+  <div class="row">
+    <div class="col-12 col-sm-6 sol-sm-offset-3">
+     <div class="container form">
+      <div class="row">
+       <div class="col-12">
+        <h2> Leave a Review </h2>
+        </div>
+        </div>
+     <%= simple_form_for [@chatroom, @review] do |f| %>
+        <div class="container">
+        <div class="row">
+          <div class="col-12">
+          <%= f.input :comment, placeholder: "How was you experience?" %>
+        </div>
+          </div>
+           <div class="row">
+          <div class="col-12">
+            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", :style=>"align-items: center;" %>
+          </div>
+          </div>
+          <%= f.submit "Send your review" , class: "btn-orange-form" %>
+          </div>
+      <% end %>
+     </div>
+    </div>
+  </div>
+ </div>

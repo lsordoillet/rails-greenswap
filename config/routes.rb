@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get "/profile", to: 'dashboard#profile'
   resources :chatrooms, only: [:update, :show, :index] do
     resources :messages, only: :create
-  end    
+    resources :reviews, only: [:new, :create]
+  end
 
   resources :favorites, only: :destroy
 
