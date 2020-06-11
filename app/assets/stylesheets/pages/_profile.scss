@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  h2 {
+  font-weight:700;
+  }
 }
 
 .flex-container {
@@ -30,7 +33,8 @@
 .nav-tabs .profile-link {
   border: 1px solid transparent;
   border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px
+  border-bottom-left-radius: 2px;
+  font-weight:500;
 }
 
 .nav-tabs .profile-link.active {
