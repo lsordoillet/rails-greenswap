@@ -14,34 +14,29 @@ h2.messages {
   margin-top:15px;
 }
 
+.messages-box {
+  width:43%;
+}
 
 .link-status-confirmed {
   color: $green;
   font-weight:600;
-  display: flex;
-  justify-content:right;
 }
 
 .link-status-enquiring {
   color: $orange;
   font-weight:600;
-  display: flex;
-  justify-content:right;
 }
 
 
 .link-status-cancelled {
   color: $red;
   font-weight:600;
-  display: flex;
-  justify-content:right;
 }
 
 .link-status-pending {
   color: $orange;
   font-weight:600;
-  display: flex;
-  justify-content:right;
 }
 
 
