@@ -30,7 +30,7 @@
 				<%else%>
 				<%= f.input :content, label: false, placeholder: "Message #{@chatroom.user.username}" %>
 				<% end %>
-				<%= f.submit "Send", class: "btn btn-primary" %>
+				<%= f.submit "Send", class: "btn-orange", :style=>"border-color: none;", :style=> "border-style:none;"%>
 				<% end %>
 			</div>
 		</div>

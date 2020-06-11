@@ -5,6 +5,7 @@
   padding: 8px 12px;
   font-weight: medium;
   border-radius: 12px;
+  
 
 }
 
@@ -29,6 +30,9 @@
   background-color:$orange!important;
   padding: 8px 12px!important;
   font-weight: medium;
+  border-color: none!important;
+  border-radius: 12px!important;
+
 }
 
 .btn-orange:hover {
@@ -100,6 +104,4 @@
   text-align: center;
   border-width: 2px;
 }
-
-
 
