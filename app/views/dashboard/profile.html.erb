@@ -95,29 +95,12 @@
           <th scope="col"> Date of inquiry </th>
        </tr>
        </thead>
-<<<<<<< HEAD
 
-
-          <% @listings.each do |listing| %>
-           <% listing.chatrooms.each do |chatroom| %>
-            <% if chatroom.status == "Confirmed"%>
-            <tr>
-            <td style="width:30%"><%= link_to chatroom.listing.title, chatroom_path(chatroom) %></td>
-            <td><%= link_to chatroom.user.username, chatroom_path(chatroom) %></td>
-            <td><%= link_to chatroom.listing.plant_category, chatroom_path(chatroom) %></td>
-            <td><%= link_to chatroom.listing.listing_type, chatroom_path(chatroom) %></td>
-            <td><%= link_to chatroom.created_at, chatroom_path(chatroom) %></td>
-            <% end %>
-            <br>
-          <% end %>
-=======
-       
-      
       <% @listings.each do |listing| %>
         <% listing.chatrooms.each do |chatroom| %>
-        <% if chatroom.status == "Confirmed"%> 
+        <% if chatroom.status == "Confirmed"%>
         <tr>
-          <td style="width:30%"><%= link_to chatroom.listing.title, chatroom_path(chatroom) %></td> 
+          <td style="width:30%"><%= link_to chatroom.listing.title, chatroom_path(chatroom) %></td>
           <td><%= link_to chatroom.user.username, chatroom_path(chatroom) %></td>
           <td><%= link_to chatroom.listing.plant_category, chatroom_path(chatroom) %></td>
           <td><%= link_to chatroom.listing.listing_type, chatroom_path(chatroom) %></td>
@@ -125,7 +108,6 @@
         <%end%>
         <br>
         <% end %>
->>>>>>> master
         <% end %>
           </tr>
       </table>

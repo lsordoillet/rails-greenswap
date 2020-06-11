@@ -62,7 +62,6 @@
   display: flex;
   align-items: center;
   margin-bottom:10px;
-
 }
 
 
@@ -79,12 +78,11 @@
   margin-bottom: 0;
   margin-top: 8px;
   padding-right: 30px;
-
 }
 
 .card-horizontal-chatroom .card-horizontal-infos {
   padding: 16px;
-  display: flex;
+  display: block;
   justify-content: space-between;
   width: 30%;
 }
