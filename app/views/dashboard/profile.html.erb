@@ -115,7 +115,7 @@
           <td><%= link_to chatroom.listing.plant_category, chatroom_path(chatroom) %></td>
           <td><%= link_to chatroom.listing.listing_type, chatroom_path(chatroom) %></td>
           <td><%= link_to chatroom.created_at.strftime("%b %e at %l:%M%p"), chatroom_path(chatroom) %></td>
-          <td><%= link_to "> Review", new_chatroom_review_path(chatroom) %></td>
+          <td><%= link_to "> Leave Review", new_chatroom_review_path(chatroom) %></td>
         <%end%>
         <br>
         <% end %>
@@ -149,7 +149,7 @@
             <td><%= link_to chatroom.listing.listing_type, chatroom_path(chatroom) %></td>
 
             <td><%= link_to chatroom.created_at.strftime("%b %e at %l:%M%p"), chatroom_path(chatroom) %></td>
-            <td><%= link_to "> Review", new_chatroom_review_path(chatroom) %></td>
+            <td><%= link_to "> Leave Review", new_chatroom_review_path(chatroom) %></td>
           </tr>
           <br>
           <%end%>
