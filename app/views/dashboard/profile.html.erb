@@ -12,7 +12,7 @@
         <h2> <%= current_user.username %> </h2>
         <p> <%= current_user.description %></p>
         <div class="link">
-          <%= link_to 'Edit', profile_edit_path(current_user) %>
+          <u><%= link_to 'Edit', profile_edit_path(current_user) %></u>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@
       <!--MY BOOKINGS TAB CONTENT-->
 
        <table class="table" style="width: 100%" style="table-layout:fixed">
-        <caption>Requests to me</caption>
+        <caption>Requested from me</caption>
         <thead>
        <tr>
           <th scope="col"> Title </th>
@@ -126,7 +126,7 @@
      <table class="table" style="width: 100%" style="table-layout:fixed">
 
 
-        <caption>Requests by me</caption>
+        <caption>Requested by me</caption>
         <thead>
         <tr>
           <th scope="col"> Title </th>
