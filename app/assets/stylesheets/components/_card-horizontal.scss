@@ -29,6 +29,8 @@
   margin-bottom: 0;
   margin-top: 8px;
   padding-right: 30px;
+  width: 780px;
+  text-align: justify;
 
 }
 
@@ -36,18 +38,19 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  width: 85%;
+  width: 100%;
 }
 
-
-.card-btns {
-  width:20%;
-}
 
 .card-btns a {
   display:flex;
   margin-bottom:4px;
   text-align:center;
+}
+
+.card-btns {
+  width:86%;
+  align-self:center;
 }
 
 

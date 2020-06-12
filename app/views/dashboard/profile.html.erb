@@ -12,7 +12,7 @@
         <h2> <%= current_user.username %> </h2>
         <p> <%= current_user.description %></p>
         <div class="link">
-          <%= link_to ' > Edit profile', profile_edit_path(current_user) %>
+          <%= link_to ' > Edit Profile', profile_edit_path(current_user) %>
         </div>
       </div>
     </div>
@@ -51,8 +51,8 @@
             <h2><%= listing.title %></h2>
             <p><%= listing.description %> </p>
             <div class="card-btns">
-              <%= link_to ' > Edit', edit_listing_path(listing) %>
-              <%= link_to " > Remove ", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }%>
+              <%= link_to '> Edit', edit_listing_path(listing) %>
+              <%= link_to '> Remove', listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }%>
             </div>
             </div>
           </div>
@@ -81,7 +81,7 @@
               <div class="card-btns">
               <%= link_to "> Remove", favorite_path(favorite), method: :delete %>
              </div>
-
+            </div>
           </div>
         <% end %>
       <% end %>
@@ -93,7 +93,7 @@
       <!--MY BOOKINGS TAB CONTENT-->
 
        <table class="table" style="width: 100%" style="table-layout:fixed">
-        <caption>Requested from me</caption>
+        <caption>Requests to me</caption>
         <thead>
        <tr>
           <th scope="col"> Title </th>
@@ -126,7 +126,7 @@
      <table class="table" style="width: 100%" style="table-layout:fixed">
 
 
-        <caption>Requested by me</caption>
+        <caption>Requests by me</caption>
         <thead>
         <tr>
           <th scope="col"> Title </th>
