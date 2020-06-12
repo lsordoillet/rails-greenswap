@@ -1,5 +1,11 @@
 <div class="container">
-  <h1 class="chatroom"> Your conversation with <%=current_user == @chatroom.user.username ? @chatroom.user.username : @chatroom.listing.user.username %> </h1>
+  <h1 class="chatroom"> Your conversation with 
+	<% if @current_user == @chatroom.user %>
+	<%= @chatroom.listing.user.username %> 
+	<%else%>
+	<%= @chatroom.user.username %> 
+	<%end%>
+	</h1>
 	<div class="d-flex">
 		<div class="chatroom-form-cardindex-username">
 			<div class="chatroom-message-username">
