@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="messages"> Messages </h1>
     <div>
-      <h2 class="messages">From my requests</h2>
+      <h2 class="messages">My requests</h2>
         <%@chatrooms.each do |chatroom|%>
           <% if chatroom.user == current_user%>
             <%= link_to chatroom_path(chatroom) do %>
@@ -30,7 +30,7 @@
     </div>
 
   <div>
-   <h2 class="messages">From my listings</h2>
+   <h2 class="messages">My listings</h2>
     <%@chatrooms.each do |chatroom|%>
       <% if chatroom.listing.user == current_user%>
         <%= link_to chatroom_path(chatroom) do %>
