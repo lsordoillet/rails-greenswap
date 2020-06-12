@@ -83,7 +83,7 @@
         <div class="row">
           <div class="card-user-avatar">
             <% if @listing.user.avatar.attached? %>
-            <%= cl_image_tag @listing.user.avatar.key, :gravity=>"faces", :crop=>"fill" %>
+            <%= cl_image_tag @listing.user.avatar.key, :width=>100, :height=>100, :gravity=>"auto", :crop=>"fill" %>
             <% else %>
              <%= image_tag "placeholder.png", alt: "placeholder-img"%>
              <% end %>
